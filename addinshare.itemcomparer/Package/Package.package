@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="c41bb642-9469-4797-ac4d-fe346863fc22" 
+        solutionId="c41bb642-9469-4797-ac4d-fe346863fc22" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="addinshare.itemcomparer"
+        sharePointProductVersion="16.0">
+  <features>
+        <featureReference itemId="f934013c-3596-46e2-ba96-bfca542a4394" />
+  </features>
+</package>
