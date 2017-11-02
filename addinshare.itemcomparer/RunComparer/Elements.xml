@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <CustomAction Id="c0bffe45-72b8-4f41-9fc8-1d9eb3f5e1a0.RunComparer"
+                RegistrationType="List"
+                RegistrationId="100"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;RunComparer&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.RunComparerButton"
+                  Alt="Compare"
+                  Sequence="100"
+                  Command="Invoke_RunComparerButtonRequest"
+                  LabelText="Compare"
+                  TemplateAlias="o1"
+                  Image32by32="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATXSURBVFhHrZfrb9dkFMf3rykKiKKgIiFqkBgSlUDA2wtB3yDRmHgjElEkyEUX0TA14Y0xCAhzMiayknEd23BMJoOxsY0fa58ev5923dqu/V1gJznZ+mt7ns9zrk+bnAtbhiqh19znvFXtvrfgiO89eDir86RPtfrerp7AG54MvTCcG3XOtTSx+PZuZ0uO+6aF7OEjvs0v0IekS/XM7h5no77NiQjAa2ruC7wlx+KFX+kI7EvBfNvnTB6Z1n29zjZ5gS086hvP7tH1XEBEALidnb+sxbtGQpt0uhFmNZCeHw1t5Z+BKSSRJ/YJ7H4hIgBiPk+7//iCs4oWL5N/75i9JEgAEoi99+mJCIAkI76fXXR2twEAlLz5WjkxWDG7edfsRk6HJ62qzQzANgHg/jLB2DtnAlv0u2+PKBfIB/LmCeXEq38HtkG6/lRWXz8d51TfeGiK4izJAHx+qToAuXDxdmgHB5z9fNVZS7+z9866CAhvkEdFukCgG5XAl/RuHiIDsL0GQCIYSZTEfE6Jyftr/wrsU+XR1pS+2xXYstbA5gviLUF05yAyAF/IVZN5RAm/sfsiuSLXvnBCC+h9EvJOEMc80RGFjR6T9JJNnrPLYzMQ0wDEcoce9HMLsXDbjTDSioznJQ1A78iDcvmjwkXOEKYYQp6YgsgAfFUAQP1/I8Mrtch3V5wNK7PTUg/ATymABCLJiSADcDkG4CUMoeTEXhnmpceV7R+ed9arRZNUqQWAHBoMo55BmBNNIM6NpAB2CoAdX1O9H1CGY5Ddv9kZJxn0ZDSl1X4z7pj1ANAPCMMO2Uc/UXKSuJTxxs5gBmCXGgoAp2R8eWtMiSaLJ8r16vbATuo5vFELAOF3vIuOq3OSmKy5UF14GoCOBgDzYJ1KCsPok3If9ZwAEIqPFIr+iTBqMGUA/FsExG88yzsPHEoB7FYZAUC2Yxz39ihbt6k/cB+IZ9uyyVgWAmx0yEPdY/F1WgoBuKCOAUgL10w9ut06tdZj17PlWARAy94vyNUnAzv8X86gpBSAhYoASMgPzjm7QNnk7qcBeJ8mQ3gI02OC/k0VkJdSADI+cWEiXA4oHEy62aZmAAgRZfWaBhKVQq5Q+1s14H65FkZ6fCi0cXmvIYBakgCwIDY4V/A/Ss5Qao/KEygHnv6JAgA9FI9jJVu1A0mR0FKfnxpGjGWMpgEIxdMqaXSDcmhAPWYWwJqO+Ei2Sjuh54+pTtMDpUgB5RDCAZVYL9MC3//jbEtXfA3AIu2e+6dvhZEyOXlvFsDBq85b/kfcYOhQWzRC6VaM1jIl0eiIi6d2/b7OBbeU/deBUjU9I3uL603CUT/09ot+RVsMgTfqUXap82SUfMl0QyaUaL8OuuiUdLSeMuQDgTl+Qu4na9/QztZzvCpTxZKGBCx/Pbk3vwzlyrQj6fJSCMANjBAjXJk/XKYVNzO4MEAF0I7LpOhOKUC9gtEfFDLqfYU8cFbJ1YgAQNcFgE+ChgGQVjUVhhTNBm/gNdyO8WrKCGe+cD4khC/qo+ieAIYUird1vsMI3wabVTnsCtdWU459zBS8xydec6/OA/cCoM1EtY0xXElV8LeWJlMVaA7BQxWdiHQwbOFw2Kj60s5h520+4/NxG33Ck1TVlJjjdnbO4i4MD/wP55RZgQ5HiJgAAAAASUVORK5CYII="
+                  Image16by16="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIiSURBVDhPfZTLT1NBFMb7v2niI+rGjQsNURFRWBmjRhMfC9y4cqFLl7o0JkaTYgwIKG1BhSI2IwmCtUqhVFGed858ft+0t1CMnuTcuXMz8zuP77SZN4vW31VI3KGhbe/kfqJuzkJw4T9uZv2ZMzx8fcrj9VJAYTkgVwu4yX3PW4/SSkDAv02QzIFXiXu50H7s0Zxh72CCnnGP4o+A2iawRNe6ac1DtAjYT8DQYjvgXT2gb9rj4oTHiVyCs2Me3YSdo9+bsQiStTIYbgL0TPjQusVIs78DOnIeD2YNA9WA598Cugi7UzIsE9ICjLB+mdJ7XDa4XwHKtLIW0FnwsTcyQW998NjH8gRZWBeAXVcD51ZDbGQvm3ealwarFr/tBBgXBbjE0pQJm+0yB5uAh2ycLlJG7GGEC+997MVOgOeiEtc9GCDgMO9GgKT7uQV8ZsTLkx7Xih6OEpabJeQJ+MSyXnxnaQ0WCryjmcnokedGJvoo39Muqwen8h53XSO7q0XDJGWtbuwCpCrItt+AL8zoOFU4MsyyBpK4niTwyVeDgkZA73jirjDtLNOTVKlruBT5PLV/WmmsN6YMMyylznJbGZRWzN3+2BgSDUvqHYx0dCSJaqh586uAMv2rBxqGDeqrwdC4pq4slO48y0gtvSzLUbmoggDNb21WXkPU+j5HVyopYuqSvW/a0D3WAGQF2e2JBfes4t2x0fafeur6CxitWfYP1LiSRM6sY1MAAAAASUVORK5CYII=" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_RunComparerButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Compare.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+</Elements>

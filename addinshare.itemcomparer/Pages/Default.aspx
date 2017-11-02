@@ -14,9 +14,10 @@
 
     <!-- Add your CSS styles to the following file -->
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
-
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.0.0/css/fabric.min.css">
     <!-- Add your JavaScript to the following file -->
     <script type="text/javascript" src="../Scripts/App.js"></script>
+    <script type="text/javascript" scr="../Scripts/ChromeLoader.js"></script>
 </asp:Content>
 
 <%-- The markup in the following Content element will be placed in the TitleArea of the page --%>
@@ -33,5 +34,5 @@
             Page Title
         </p>
     </div>
-
+    <span class="ms-font-su ms-fontColor-themePrimary">Big blue text</span>
 </asp:Content>
