@@ -16,6 +16,7 @@
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
     <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.0.0/css/fabric.min.css">
     <!-- Add your JavaScript to the following file -->
+    <script type="text/javascript" src="../Scripts/Util.js"></script>
     <script type="text/javascript" src="../Scripts/App.js"></script>
     <script type="text/javascript" scr="../Scripts/ChromeLoader.js"></script>
 </asp:Content>

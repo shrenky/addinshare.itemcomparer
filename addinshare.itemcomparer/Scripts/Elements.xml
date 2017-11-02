@@ -7,5 +7,6 @@
     <File Path="Scripts\jquery-1.9.1.js" Url="Scripts/jquery-1.9.1.js" ReplaceContent="TRUE" />
     <File Path="Scripts\jquery-1.9.1.intellisense.js" Url="Scripts/jquery-1.9.1.intellisense.js" ReplaceContent="TRUE" />
     <File Path="Scripts\ChromeLoader.js" Url="Scripts/ChromeLoader.js" ReplaceContent="TRUE" />
+    <File Path="Scripts\Util.js" Url="Scripts/Util.js" ReplaceContent="TRUE" />
   </Module>
 </Elements>
