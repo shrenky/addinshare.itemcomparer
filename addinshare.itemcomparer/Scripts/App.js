@@ -31,7 +31,7 @@ function initializePage()
     }
 
     var userSelectedItems;
-
+    var allFields;
     function getSeletedItems()
      {
         var clientContext = SP.ClientContext.get_current();
@@ -52,20 +52,52 @@ function initializePage()
             '</Eq></Or></Where></Query><RowLimit>2</RowLimit></View>');
         userSelectedItems = workingList.getItems(camlQuery);
         clientContext.load(userSelectedItems);
+        allFields = workingList.get_fields();
+        clientContext.load(allFields);
         clientContext.executeQueryAsync(showItems, onGetItemsFail);
     }
 
     function showItems()
     {
         var listItemEnumerator = userSelectedItems.getEnumerator();
+        var panelDiv = $("#comparePanel");
         while (listItemEnumerator.moveNext()) {
             var oListItem = listItemEnumerator.get_current();
-            var listItemInfo = '\nID: ' + oListItem.get_id() +
-                '\nTitle: ' + oListItem.get_item('Title');
-            console.log(listItemInfo);
-        }
+            var values = oListItem.get_fieldValues();
+            console.log(values);
+            $.each(values, function (k, v) {
+                console.log(k + " , " + v);
+            });
 
-        alert("in show Items: " + userSelectedItems);
+            var fieldEnumerator = allFields.getEnumerator();
+            while (fieldEnumerator.moveNext())
+            {
+                var f = fieldEnumerator.get_current();
+                var internalName = f.get_internalName();
+                var v = values[internalName];
+                console.log(f.get_title() + " , " + values[internalName]);
+                if ($('#' + internalName).length == 0) {
+                    var rowDiv = $('<div />', {
+                        "class": 'ms-Grid-row',
+                        id: internalName
+                    });
+                    var colDiv1 = $('<div/>', { "class": 'ms-Grid-col ms-sm4 ms-md4 ms-lg4', text: internalName });
+                    var colDiv2 = $('<div/>', { "class": 'ms-Grid-col ms-sm4 ms-md4 ms-lg4', text: v });
+                    colDiv1.appendTo(rowDiv);
+                    colDiv2.appendTo(rowDiv);
+                    rowDiv.appendTo(panelDiv);
+                }
+                else
+                {
+                    var row = $('#' + internalName);
+                    var colDiv2 = $('<div/>', { "class": 'ms-Grid-col ms-sm4 ms-md4 ms-lg4', text: v });
+                    colDiv2.appendTo(row);
+
+                }
+                
+            }
+            
+        }
     }
 
     function onGetItemsFail() {

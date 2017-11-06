@@ -10,10 +10,11 @@
 
     <!-- Add your CSS styles to the following file -->
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
-
+    <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.0.0/css/fabric.min.css">
     <!-- Add your JavaScript to the following file -->
     <script type="text/javascript" src="../Scripts/Util.js"></script>
     <script type="text/javascript" src="../Scripts/App.js"></script>
+    <script type="text/javascript" scr="../Scripts/ChromeLoader.js"></script>
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
@@ -28,6 +29,13 @@
             <!-- The following content will be replaced with the user name when you run the app - see App.js -->
             Item Comparer
         </p>
+    </div>
+    <div id="comparePanel" class="ms-Grid">
+      <div class="ms-Grid-row">
+        <div id="nameCol" class="ms-Grid-col ms-sm4 ms-md4 ms-lg4">Column Name</div>
+        <div id="item1Col" class="ms-Grid-col ms-sm4 ms-md4 ms-lg4">The First Item</div>
+        <div id="item2Col" class="ms-Grid-col ms-sm4 ms-md4 ms-lg4">The Second Item</div>
+      </div>
     </div>
 
 </asp:Content>
