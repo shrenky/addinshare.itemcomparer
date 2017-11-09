@@ -30,8 +30,10 @@ function initializePage()
         alert('Failed to get user name. Error:' + args.get_message());
     }
 
+    var listContentTypes;
     var userSelectedItems;
     var allFields;
+    var contentTypeNameOfCurrentItem;
     function getSeletedItems()
      {
         var clientContext = SP.ClientContext.get_current();
@@ -46,14 +48,17 @@ function initializePage()
         var camlQuery = new SP.CamlQuery();
         
         camlQuery.set_viewXml(
-            '<View><Query><Where><Or><Eq>' +
-            '<FieldRef Name=\'ID\'/><Value Type=\'Number\'>' + firstId +'</Value>' +
-            '</Eq><Eq><FieldRef Name=\'ID\'/><Value Type=\'Number\'>' + secondId + '</Value>' +
-            '</Eq></Or></Where></Query><RowLimit>2</RowLimit></View>');
+            '<View><Query><Where><In>' +
+            '<FieldRef Name=\'ID\'/><Values><Value Type=\'COunter\'>' + firstId +'</Value>' +
+            '<Value Type=\'Counter\'>' + secondId + '</Value>' +
+            '</Values></In></Where></Query><RowLimit>2</RowLimit></View>');
         userSelectedItems = workingList.getItems(camlQuery);
         clientContext.load(userSelectedItems);
         allFields = workingList.get_fields();
+        listContentTypes = workingList.get_contentTypes();
+        clientContext.load(listContentTypes);
         clientContext.load(allFields);
+
         clientContext.executeQueryAsync(showItems, onGetItemsFail);
     }
 
@@ -64,24 +69,23 @@ function initializePage()
         while (listItemEnumerator.moveNext()) {
             var oListItem = listItemEnumerator.get_current();
             var values = oListItem.get_fieldValues();
-            console.log(values);
-            $.each(values, function (k, v) {
-                console.log(k + " , " + v);
-            });
+
+            contentTypeNameOfCurrentItem = getContentTypeOfCurrentItem(oListItem);
 
             var fieldEnumerator = allFields.getEnumerator();
             while (fieldEnumerator.moveNext())
             {
                 var f = fieldEnumerator.get_current();
+                if (f.get_hidden() || (f.get_readOnlyField() && !isBuiltinField(f))) { continue; }
                 var internalName = f.get_internalName();
-                var v = values[internalName];
-                console.log(f.get_title() + " , " + values[internalName]);
-                if ($('#' + internalName).length == 0) {
+                var dispName = f.get_title();
+                var v = getValueOfCurrentField(f, values);
+                if ($('#' + internalName).length === 0) {
                     var rowDiv = $('<div />', {
                         "class": 'ms-Grid-row',
                         id: internalName
                     });
-                    var colDiv1 = $('<div/>', { "class": 'ms-Grid-col ms-sm4 ms-md4 ms-lg4', text: internalName });
+                    var colDiv1 = $('<div/>', { "class": 'ms-Grid-col ms-sm4 ms-md4 ms-lg4', text: dispName });
                     var colDiv2 = $('<div/>', { "class": 'ms-Grid-col ms-sm4 ms-md4 ms-lg4', text: v });
                     colDiv1.appendTo(rowDiv);
                     colDiv2.appendTo(rowDiv);
@@ -90,7 +94,7 @@ function initializePage()
                 else
                 {
                     var row = $('#' + internalName);
-                    var colDiv2 = $('<div/>', { "class": 'ms-Grid-col ms-sm4 ms-md4 ms-lg4', text: v });
+                    colDiv2 = $('<div/>', { "class": 'ms-Grid-col ms-sm4 ms-md4 ms-lg4', text: v });
                     colDiv2.appendTo(row);
 
                 }
@@ -98,6 +102,132 @@ function initializePage()
             }
             
         }
+    }
+
+    function isBuiltinField(field)
+    {
+        var isReadOnly = field.get_readOnlyField();
+        var builtinFields = ["Author", "Editor", "_ModerationComments", "Modified", "Created", "_UIVersionString", "ModStat", "Created_x0020_Date", "Last_x0020_Modified", "FSObjType", "PermMask", "LinkFilename"]; //,"AppAuthor", "AppEditor"
+
+        var isReadOnlyLookup = isReadOnly && (field.get_typeAsString() === "Lookup") && (field.get_internalName().indexOf("Lookup") ===0);
+        return isReadOnlyLookup || (builtinFields.indexOf(field.get_internalName()) >-1)
+    }
+
+    ////refactor by Factory Pattern
+    function getDisplayValue(field, values)
+    {
+        var fieldTypeString = field.get_typeAsString();
+        var internalName = field.get_internalName();
+        var text;
+        switch (fieldTypeString) {
+            case "ContentTypeId":
+                text = values[internalName];
+                break;
+            case "Text":
+                text = values[internalName];
+                break;
+            case "Note":
+                text = values[internalName];
+                break;
+            case "Number":
+                text = values[internalName];
+                break;
+            case "Boolean":
+                text = values[internalName];
+                break;
+            case "User":
+                if (values[internalName] && typeof (values[internalName].get_lookupValue) !== "undefined") {
+                    text = values[internalName].get_lookupValue();
+                }
+                else {
+                    text = values[internalName];
+                }
+                break;
+            case "DateTime":
+                text = values[internalName].toLocaleDateString();
+                break;
+            case "Choice":
+                text = values[internalName];
+                break;
+            case "URL":
+                if (values[internalName] && typeof (values[internalName].get_url) !== "undefined") {
+                    text = values[internalName].get_url();
+                }
+                else {
+                    text = values[internalName];
+                }
+                break;
+            case "Currency":
+                text = values[internalName];
+                break;
+            case "Lookup":
+                if (values[internalName] && typeof (values[internalName].get_lookupValue) !== "undefined") 
+                {
+                    text = values[internalName].get_lookupValue();
+                }
+                else
+                {
+                    text = values[internalName];
+                }
+                break;
+            case "LookupMulti":
+                text = values[internalName];
+                break;
+            case "TaxonomyFieldType":
+                text = values[internalName].Label;
+                break;
+            case "TaxonomyFieldTypeMulti":
+                text = values[internalName].Label;
+                break;
+            case "Counter":
+                text = values[internalName];
+                break;
+            case "Computed":
+                text = values[internalName];
+                break;
+            case "Attachments":
+                text = values[internalName];
+                break;
+            case "Integer":
+                text = values[internalName];
+                break;
+            case "Guid":
+                text = values[internalName];
+                break;
+            case "File":
+                text = values[internalName];
+                break;
+            default:
+                text = "NaN";
+        }
+
+        return text;
+    }
+
+    function getContentTypeOfCurrentItem(listItem) {
+            var ctid = listItem.get_item("ContentTypeId").toString();
+            var contentTypeName;
+            var ct_enumerator = listContentTypes.getEnumerator();
+            while (ct_enumerator.moveNext()) {
+                    var ct = ct_enumerator.get_current();
+
+                    if (ct.get_id().toString() === ctid) {
+                            //we've got our content type, now let's get its name
+                        contentTypeName = ct.get_name();
+                    }
+            }
+            return contentTypeName;
+    }
+    
+    function getValueOfCurrentField(f, values)
+    {
+        var internalName = f.get_internalName();
+        if (internalName === "ContentType")
+        {
+            return contentTypeNameOfCurrentItem;
+        }
+
+        return getDisplayValue(f, values);
     }
 
     function onGetItemsFail() {
