@@ -8,7 +8,7 @@
 >
   <Properties>
     <Title>Item Comparer</Title>
-    <StartPage>~appWebUrl/Pages/Default.aspx?{StandardTokens}</StartPage>
+    <StartPage>~appWebUrl/Pages/Default.aspx?{StandardTokens}&amp;SPHostTitle={HostTitle}</StartPage>
     <SupportedLocales>
       <SupportedLocale CultureName="en-US" />
     </SupportedLocales>
