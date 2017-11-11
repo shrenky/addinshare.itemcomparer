@@ -5,37 +5,18 @@ ExecuteOrDelayUntilScriptLoaded(initializePage, "sp.js");
 function initializePage()
 {
     var context = SP.ClientContext.get_current();
-    var user = context.get_web().get_currentUser();
-
-    // This code runs when the DOM is ready and creates a context object which is needed to use the SharePoint object model
-    $(document).ready(function () {
-        //getUserName();
-        getSeletedItems();
-    });
-
-    // This function prepares, loads, and then executes a SharePoint query to get the current users information
-    function getUserName() {
-        context.load(user);
-        context.executeQueryAsync(onGetUserNameSuccess, onGetUserNameFail);
-    }
-
-    // This function is executed if the above call is successful
-    // It replaces the contents of the 'message' element with the user name
-    function onGetUserNameSuccess() {
-        $('#message').text('Hello ' + user.get_title());
-    }
-
-    // This function is executed if the above call fails
-    function onGetUserNameFail(sender, args) {
-        alert('Failed to get user name. Error:' + args.get_message());
-    }
-
     var listContentTypes;
     var userSelectedItems;
     var allFields;
     var contentTypeNameOfCurrentItem;
     var views;
-    function getSeletedItems()
+
+    // This code runs when the DOM is ready and creates a context object which is needed to use the SharePoint object model
+    $(document).ready(function () {
+        loadData();
+    });
+
+    function loadData()
      {
         var clientContext = SP.ClientContext.get_current();
         var hostWebURL = decodeURIComponent(addinshare_getQueryStringParameter("SPHostUrl"));
@@ -50,7 +31,7 @@ function initializePage()
         
         camlQuery.set_viewXml(
             '<View><Query><Where><In>' +
-            '<FieldRef Name=\'ID\'/><Values><Value Type=\'COunter\'>' + firstId +'</Value>' +
+            '<FieldRef Name=\'ID\'/><Values><Value Type=\'Counter\'>' + firstId +'</Value>' +
             '<Value Type=\'Counter\'>' + secondId + '</Value>' +
             '</Values></In></Where></Query><RowLimit>2</RowLimit></View>');
         userSelectedItems = workingList.getItems(camlQuery);
@@ -61,20 +42,29 @@ function initializePage()
         clientContext.load(listContentTypes);
         clientContext.load(allFields);
         clientContext.load(views);
-        clientContext.executeQueryAsync(showItems, onGetItemsFail);
+        clientContext.executeQueryAsync(populateData, onGetItemsFail);
     }
 
-    function showItems()
+    function populateData()
+    {
+        bindViews();
+        bindCompareBody();
+        bindFilterBody();
+    }
+
+    function bindViews()
     {
         var viewsEnumerator = views.getEnumerator();
         var viewsDDL = $('#viewDDL');
-        while (viewsEnumerator.moveNext())
-        {
+        while (viewsEnumerator.moveNext()) {
             var oview = viewsEnumerator.get_current();
-            var li = $('<a/>', {text:oview.get_title()});
+            var li = $('<a/>', { text: oview.get_title() });
             li.appendTo(viewsDDL);
         }
+    }
 
+    function bindCompareBody()
+    {
         var listItemEnumerator = userSelectedItems.getEnumerator();
         var compareBody = $("#compareBody");
         while (listItemEnumerator.moveNext()) {
@@ -85,37 +75,44 @@ function initializePage()
 
             var fieldEnumerator = allFields.getEnumerator();
             var chbList = $('#filterBody');
-            while (fieldEnumerator.moveNext())
-            {
+            while (fieldEnumerator.moveNext()) {
                 var f = fieldEnumerator.get_current();
                 if (f.get_hidden() || (f.get_readOnlyField() && !isBuiltinField(f))) { continue; }
                 var internalName = f.get_internalName();
                 var dispName = f.get_title();
                 var v = getValueOfCurrentField(f, values);
                 if ($('#' + internalName).length === 0) {
-                    var rowTr = $('<tr />', {
-                        id: internalName
-                    });
+                    var rowTr = $('<tr />', {id: internalName });
                     var col1 = $('<td/>', { text: dispName });
-                    var col2 = $('<td/>', {  text: v });
+                    var col2 = $('<td/>', { text: v });
                     col1.appendTo(rowTr);
                     col2.appendTo(rowTr);
                     rowTr.appendTo(compareBody);
-                    var chbDiv = createCheckBox(internalName);
-                    chbDiv.appendTo(chbList);
                 }
-                else
-                {
+                else {
                     var row = $('#' + internalName);
-                    col2 = $('<div/>', { text: v });
+                    col2 = $('<td/>', { text: v });
                     col2.appendTo(row);
 
                 }
-                
-            }
-            
-        }
 
+            }
+
+        }
+    }
+
+    function bindFilterBody()
+    {
+        var chbListBody = $('#filterBody');
+        var fieldEnumerator = allFields.getEnumerator();
+        while (fieldEnumerator.moveNext()) {
+            var f = fieldEnumerator.get_current();
+            if (f.get_hidden() || (f.get_readOnlyField() && !isBuiltinField(f))) { continue; }
+            var internalName = f.get_internalName();
+            var dispName = f.get_title();
+            var chbDiv = createCheckBox(internalName, dispName);
+            chbDiv.appendTo(chbListBody);
+        }
     }
     ///<div class="ms-CheckBox">
     ///<input tabindex="-1" type="checkbox" class="ms-CheckBox-input">
@@ -123,13 +120,16 @@ function initializePage()
     ///        <span class="ms-Label">Checkbox</span>
     ///    </label>
     ///    </div>
-    function createCheckBox(txt)
-    {
+    function createCheckBox(internalName, dispName) {
 
-        var rowTr = $('<tr />');
-        var col1 = $('<td/>', {
-            class: 'ms-Table-rowCheck', id: 'filter_' + txt, text:'  ' + txt, 'style': 'padding-left:20px'
+        var rowTr = $('<tr/>', { id: 'filter_' + internalName, class: 'is-selected' }).click(function () {
+            //refresh compareBody
+            console.log($(this).attr('class'));
         });
+
+        var col1 = $('<td/>', {
+            class: 'ms-Table-rowCheck', text: dispName, 'style': 'padding-left:20px'
+        })
         col1.appendTo(rowTr);
         return rowTr;
     }

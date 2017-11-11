@@ -39,7 +39,7 @@
                 <table id="filterTable" class="ms-Table ms-Table--selectable">
                   <thead>
                     <tr>
-                      <th>Filters</th>
+                      <th>Fields Filter</th>
                     </tr>
                   </thead>
                   <tbody id="filterBody">
