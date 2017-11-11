@@ -9,7 +9,7 @@ function initializePage()
 
     // This code runs when the DOM is ready and creates a context object which is needed to use the SharePoint object model
     $(document).ready(function () {
-        getUserName();
+        //getUserName();
         getSeletedItems();
     });
 
@@ -34,6 +34,7 @@ function initializePage()
     var userSelectedItems;
     var allFields;
     var contentTypeNameOfCurrentItem;
+    var views;
     function getSeletedItems()
      {
         var clientContext = SP.ClientContext.get_current();
@@ -56,16 +57,26 @@ function initializePage()
         clientContext.load(userSelectedItems);
         allFields = workingList.get_fields();
         listContentTypes = workingList.get_contentTypes();
+        views = workingList.get_views();
         clientContext.load(listContentTypes);
         clientContext.load(allFields);
-
+        clientContext.load(views);
         clientContext.executeQueryAsync(showItems, onGetItemsFail);
     }
 
     function showItems()
     {
+        var viewsEnumerator = views.getEnumerator();
+        var viewsDDL = $('#viewDDL');
+        while (viewsEnumerator.moveNext())
+        {
+            var oview = viewsEnumerator.get_current();
+            var li = $('<a/>', {text:oview.get_title()});
+            li.appendTo(viewsDDL);
+        }
+
         var listItemEnumerator = userSelectedItems.getEnumerator();
-        var panelDiv = $("#comparePanel");
+        var compareBody = $("#compareBody");
         while (listItemEnumerator.moveNext()) {
             var oListItem = listItemEnumerator.get_current();
             var values = oListItem.get_fieldValues();
@@ -73,6 +84,7 @@ function initializePage()
             contentTypeNameOfCurrentItem = getContentTypeOfCurrentItem(oListItem);
 
             var fieldEnumerator = allFields.getEnumerator();
+            var chbList = $('#filterBody');
             while (fieldEnumerator.moveNext())
             {
                 var f = fieldEnumerator.get_current();
@@ -81,27 +93,45 @@ function initializePage()
                 var dispName = f.get_title();
                 var v = getValueOfCurrentField(f, values);
                 if ($('#' + internalName).length === 0) {
-                    var rowDiv = $('<div />', {
-                        "class": 'ms-Grid-row',
+                    var rowTr = $('<tr />', {
                         id: internalName
                     });
-                    var colDiv1 = $('<div/>', { "class": 'ms-Grid-col ms-sm4 ms-md4 ms-lg4', text: dispName });
-                    var colDiv2 = $('<div/>', { "class": 'ms-Grid-col ms-sm4 ms-md4 ms-lg4', text: v });
-                    colDiv1.appendTo(rowDiv);
-                    colDiv2.appendTo(rowDiv);
-                    rowDiv.appendTo(panelDiv);
+                    var col1 = $('<td/>', { text: dispName });
+                    var col2 = $('<td/>', {  text: v });
+                    col1.appendTo(rowTr);
+                    col2.appendTo(rowTr);
+                    rowTr.appendTo(compareBody);
+                    var chbDiv = createCheckBox(internalName);
+                    chbDiv.appendTo(chbList);
                 }
                 else
                 {
                     var row = $('#' + internalName);
-                    colDiv2 = $('<div/>', { "class": 'ms-Grid-col ms-sm4 ms-md4 ms-lg4', text: v });
-                    colDiv2.appendTo(row);
+                    col2 = $('<div/>', { text: v });
+                    col2.appendTo(row);
 
                 }
                 
             }
             
         }
+
+    }
+    ///<div class="ms-CheckBox">
+    ///<input tabindex="-1" type="checkbox" class="ms-CheckBox-input">
+    ///    <label role="checkbox" class="ms-CheckBox-field" tabindex="0" aria-checked="false" name="checkboxa">
+    ///        <span class="ms-Label">Checkbox</span>
+    ///    </label>
+    ///    </div>
+    function createCheckBox(txt)
+    {
+
+        var rowTr = $('<tr />');
+        var col1 = $('<td/>', {
+            class: 'ms-Table-rowCheck', id: 'filter_' + txt, text:'  ' + txt, 'style': 'padding-left:20px'
+        });
+        col1.appendTo(rowTr);
+        return rowTr;
     }
 
     function isBuiltinField(field)

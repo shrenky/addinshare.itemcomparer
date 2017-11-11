@@ -16,24 +16,42 @@
     <link rel="Stylesheet" type="text/css" href="../Content/App.css" />
     <link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/9.0.0/css/fabric.min.css"/>
     <!-- Add your JavaScript to the following file -->
-    <script type="text/javascript" src="../Scripts/Util.js"></script>
-    <script type="text/javascript" src="../Scripts/App.js"></script>
-    <script type="text/javascript" src="../Scripts/ChromeLoader.js"></script>
 </asp:Content>
 
 <%-- The markup in the following Content element will be placed in the TitleArea of the page --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-    Page Title
+    Item Comparer
 </asp:Content>
 
 <%-- The markup and script in the following Content element will be placed in the <body> of the page --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
-    <div id="chrome_ctrl_placeholder"></div>
     <div>
-        <p id="message">
-            <!-- The following content will be replaced with the user name when you run the app - see App.js -->
-            Page Title
-        </p>
+        <p id="message"></p>
     </div>
-    <span class="ms-font-su ms-fontColor-themePrimary">Big blue text</span>
+
+    <div class="ms-font-l" style="margin-left:15px">
+        <p>Thanks for installing the Item Comparer Add-in!</p>
+        <p>The <b>Item Comparer</b> Add-in is a smart tool that will help you compare two items. </p>
+        <p>Once added the Add-in will look like this:</p>
+        <p>
+            <img src="../Images/appicon.png" alt="" />
+        </p>
+        <p>It shows differences between items:</p>
+        <p>
+            <img src="../Images/appicon.png" alt="" />
+        </p>
+        <p>It supports read only fields like Author, Version etc.:</p>
+        <p>
+            <img src="../Images/appicon.png" alt="" />
+        </p>
+        <p>It supports views, you can switch views:</p>
+        <p>
+            <img src="../Images/appicon.png" alt="" />
+        </p>
+        <p>It supports filters:</p>
+        <p>
+            <img src="../Images/appicon.png" alt="" />
+        </p>
+        
+    </div>
 </asp:Content>
