@@ -36,7 +36,7 @@
     </div>
     <div id="main" class="ms-Grid">
         <div class="ms-Grid-row">
-            <div id="filterPanel" class="ms-Grid-col ms-sm4 ms-md4 ms-lg4" style="border-right-style:solid; border-right-width:1px">
+            <div id="filterPanel" class="ms-Grid-col ms-sm4 ms-md4 ms-lg4 filterborder">
                 <table id="filterTable" class="ms-Table ms-Table--selectable">
                   <thead>
                     <tr>
