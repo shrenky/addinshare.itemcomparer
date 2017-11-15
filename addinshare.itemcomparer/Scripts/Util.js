@@ -8,3 +8,14 @@
             return singleParam[1];
     }
 }
+
+function addinshare_collectionToArray(collection)
+{
+    var items = [];
+    var e = collection.getEnumerator();
+    while (e.moveNext()) {
+        var item = e.get_current();
+        items.push(item);
+    }
+    return items;
+}   

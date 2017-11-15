@@ -17,6 +17,7 @@
     <!-- Add your JavaScript to the following file -->
     <script type="text/javascript" src="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/js/fabric.min.js"></script>
     <script type="text/javascript" src="../Scripts/Util.js"></script>
+    <script type="text/javascript" src="../Scripts/diff.js"></script>
     <script type="text/javascript" src="../Scripts/App.js"></script>
 </asp:Content>
 
@@ -28,14 +29,14 @@
 <asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
     <div class="navbar">
       <div class="dropdown">
-        <button id="viewDDLBtn" class="dropbtn">All Items <i class="fa fa-caret-down"></i></button>
+        <button id="viewDDLBtn" class="dropbtn" onclick="return false;"><i class="fa fa-caret-down"></i></button>
         <div id="viewDDL" class="dropdown-content">
         </div>
       </div> 
     </div>
     <div id="main" class="ms-Grid">
         <div class="ms-Grid-row">
-            <div id="filterPanel" class="ms-Grid-col ms-sm4 ms-md4 ms-lg4">
+            <div id="filterPanel" class="ms-Grid-col ms-sm4 ms-md4 ms-lg4" style="border-right-style:solid; border-right-width:1px">
                 <table id="filterTable" class="ms-Table ms-Table--selectable">
                   <thead>
                     <tr>

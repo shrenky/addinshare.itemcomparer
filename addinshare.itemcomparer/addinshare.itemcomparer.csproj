@@ -65,6 +65,7 @@
       <OpcRelationship>feature-elementmanifest</OpcRelationship>
     </Content>
     <Content Include="Scripts\ChromeLoader.js" />
+    <Content Include="Scripts\diff.js" />
     <Content Include="Scripts\Elements.xml" />
     <Content Include="Scripts\App.js" />
     <Content Include="Scripts\jquery-1.9.1.intellisense.js" />

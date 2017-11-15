@@ -9,5 +9,6 @@
     <ProjectItemFile Source="jquery-1.9.1.intellisense.js" Target="Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="ChromeLoader.js" Target="Scripts\" Type="ElementFile" />
     <ProjectItemFile Source="Util.js" Target="Scripts\" Type="ElementFile" />
+    <ProjectItemFile Source="diff.js" Target="Scripts\" Type="ElementFile" />
   </Files>
 </ProjectItem>

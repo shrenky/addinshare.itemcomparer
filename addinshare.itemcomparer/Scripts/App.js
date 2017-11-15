@@ -10,6 +10,8 @@ function initializePage()
     var allFields;
     var contentTypeNameOfCurrentItem;
     var views;
+    var workingList;
+    var defaultView;
 
     // This code runs when the DOM is ready and creates a context object which is needed to use the SharePoint object model
     $(document).ready(function () {
@@ -25,7 +27,7 @@ function initializePage()
         var firstId = selectedItemsIds.split(",")[0];
         var secondId = selectedItemsIds.split(",")[1];
         var hostWebContext = new SP.AppContextSite(clientContext, hostWebURL);
-        var workingList = hostWebContext.get_web().get_lists().getById(listId);
+        workingList = hostWebContext.get_web().get_lists().getById(listId);
 
         var camlQuery = new SP.CamlQuery();
         
@@ -52,15 +54,63 @@ function initializePage()
         bindFilterBody();
     }
 
+    var currentViewFields;
+
     function bindViews()
     {
         var viewsEnumerator = views.getEnumerator();
+        
         var viewsDDL = $('#viewDDL');
         while (viewsEnumerator.moveNext()) {
             var oview = viewsEnumerator.get_current();
-            var li = $('<a/>', { text: oview.get_title() });
+            if (oview.get_defaultView())
+            {
+                $('#viewDDLBtn').text(oview.get_title());
+                defaultView = oview;
+            }
+            var li = $('<a/>', { text: oview.get_title(), id: oview.get_id()}).click(function () {
+                var viewId = $(this).attr('id');
+                var currentView = views.getById(viewId);
+                $('#viewDDLBtn').text($(this).text());
+                currentViewFields = currentView.get_viewFields();
+                context.load(currentViewFields);
+                context.executeQueryAsync(refreshData, onGetFieldsFail);
+            });
             li.appendTo(viewsDDL);
         }
+    }
+
+    function refreshData()
+    {
+        var fieldsArray = addinshare_collectionToArray(currentViewFields);
+        $('#compareBody > tr').each(function () {
+            var internalName = $(this).attr('id');
+            if (fieldsArray.indexOf(internalName) > -1) {
+                $(this).show();
+            }
+            else {
+                $(this).hide();
+            }
+        });
+
+        $('.filtercheckboxdiv').each(function () {
+            var divId = $(this).attr('id');
+            var internalName = divId.substring(4);
+            $(this).children(":first").prop('checked', true);
+            $(this)[0].checked = true;
+            if (fieldsArray.indexOf(internalName) > -1) {
+                $(this).show();
+            }
+            else {
+                $(this).hide();
+            }
+        });
+
+    }
+
+    function onGetFieldsFail()
+    {
+        alert('failed to get view fields');
     }
 
     function bindCompareBody()
@@ -91,7 +141,36 @@ function initializePage()
                 }
                 else {
                     var row = $('#' + internalName);
-                    col2 = $('<td/>', { text: v });
+                    var item1Text = row.children(':last').text();
+                    var diff = JsDiff.diffChars(item1Text, v, false);
+                    var item2Text = [];
+
+                    var fragment = document.createDocumentFragment();
+                    for (var i = 0; i < diff.length; i++) {
+
+                        if (diff[i].added && diff[i + 1] && diff[i + 1].removed) {
+                            var swap = diff[i];
+                            diff[i] = diff[i + 1];
+                            diff[i + 1] = swap;
+                        }
+
+                        var node;
+                        if (diff[i].removed) {
+                            node = document.createElement('del');
+                            node.appendChild(document.createTextNode(diff[i].value));
+                        } else if (diff[i].added) {
+                            node = document.createElement('ins');
+                            node.appendChild(document.createTextNode(diff[i].value));
+                        } else {
+                            node = document.createTextNode(diff[i].value);
+                        }
+                        fragment.appendChild(node);
+                    }
+
+                    //result.textContent = '';
+                    //result.appendChild(fragment);
+
+                    col2 = $('<td/>').html(fragment);
                     col2.appendTo(row);
 
                 }
@@ -99,18 +178,22 @@ function initializePage()
             }
 
         }
+
+        currentViewFields = defaultView.get_viewFields();
+        context.load(currentViewFields);
+        context.executeQueryAsync(refreshData, onGetFieldsFail);
     }
 
     function bindFilterBody()
     {
-        var chbListBody = $('#filterBody');
+        var chbListBody = $('#filterPanel');
         var fieldEnumerator = allFields.getEnumerator();
         while (fieldEnumerator.moveNext()) {
             var f = fieldEnumerator.get_current();
             if (f.get_hidden() || (f.get_readOnlyField() && !isBuiltinField(f))) { continue; }
             var internalName = f.get_internalName();
             var dispName = f.get_title();
-            var chbDiv = createCheckBox(internalName, dispName);
+            var chbDiv = createCheckBoxDiv(internalName, dispName);
             chbDiv.appendTo(chbListBody);
         }
     }
@@ -120,6 +203,7 @@ function initializePage()
     ///        <span class="ms-Label">Checkbox</span>
     ///    </label>
     ///    </div>
+    /// old function for selected table
     function createCheckBox(internalName, dispName) {
 
         var rowTr = $('<tr/>', { id: 'filter_' + internalName, class: 'is-selected' }).click(function () {
@@ -132,6 +216,27 @@ function initializePage()
         })
         col1.appendTo(rowTr);
         return rowTr;
+    }
+
+    function createCheckBoxDiv(internalName, dispName) {
+
+        var checkbox = $('<input/>', { id: 'filter_' + internalName, type:'checkbox', 'checked':'checked' }).click(function () {
+            var isSelected = $(this).is(':checked');
+            if (isSelected) {
+                $('#' + internalName).show();
+            }
+            else
+            {
+                $('#' + internalName).hide();
+            }
+        });
+
+        var chbLabel = $('<lable/>', {text:dispName});
+
+        var chbDiv = $('<div />', { id: 'div_' + internalName, 'class':'filtercheckboxdiv' });
+        checkbox.appendTo(chbDiv);
+        chbLabel.appendTo(chbDiv);
+        return chbDiv;
     }
 
     function isBuiltinField(field)
@@ -231,7 +336,7 @@ function initializePage()
                 text = "NaN";
         }
 
-        return text;
+        return text.toString();
     }
 
     function getContentTypeOfCurrentItem(listItem) {
@@ -261,6 +366,6 @@ function initializePage()
     }
 
     function onGetItemsFail() {
-        alert("Falied to get items");
+        alert("Error - Falied to get items");
     }
 }
