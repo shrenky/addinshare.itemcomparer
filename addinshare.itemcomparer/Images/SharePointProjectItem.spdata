@@ -7,5 +7,7 @@
     <ProjectItemFile Source="32x32.png" Target="Images\" Type="ElementFile" />
     <ProjectItemFile Source="down16x16.png" Target="Images\" Type="ElementFile" />
     <ProjectItemFile Source="ribbon16.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="icon96.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="appicon96.png" Target="Images\" Type="ElementFile" />
   </Files>
 </ProjectItem>

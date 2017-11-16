@@ -6,5 +6,7 @@
     <File Path="Images\32x32.png" Url="Images/32x32.png" ReplaceContent="TRUE" />
     <File Path="Images\down16x16.png" Url="Images/down16x16.png" ReplaceContent="TRUE" />
     <File Path="Images\ribbon16.png" Url="Images/ribbon16.png" ReplaceContent="TRUE" />
+    <File Path="Images\icon96.png" Url="Images/icon96.png" ReplaceContent="TRUE" />
+    <File Path="Images\appicon96.png" Url="Images/appicon96.png" ReplaceContent="TRUE" />
   </Module>
 </Elements>
