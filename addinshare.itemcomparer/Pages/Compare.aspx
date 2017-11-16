@@ -22,7 +22,17 @@
 </asp:Content>
 
 <asp:Content ContentPlaceHolderID="PlaceHolderPageTitleInTitleArea" runat="server">
-    Item Comparer
+    <div class="ms-Breadcrumb" style="margin-top:8px;">
+      <div class="ms-Breadcrumb-overflow">
+        <div class="ms-Breadcrumb-overflowButton ms-Icon ms-Icon--More"></div>
+        <div class="ms-Breadcrumb-overflowMenu">
+          <ul class="ms-ContextualMenu is-open"></ul>
+        </div>
+      </div>
+      <ul class="ms-Breadcrumb-list">
+        
+      </ul>
+    </div>
 </asp:Content>
 
 <%-- The markup and script in the following Content element will be placed in the <body> of the page --%>
@@ -67,7 +77,7 @@
                 </table>
                 <div class="okbutton">
                     <button id="okbutton" class="ms-Button">
-                      <span class="ms-Button-label">OK</span> 
+                      <span class="ms-Button-label">Back to list</span> 
                     </button>
                 </div>
             </div>
@@ -75,6 +85,7 @@
         
     </div>
     
+    <div style="margin-bottom:30px"></div>
     
     <script type="text/javascript">
       var TableElements = document.querySelectorAll(".ms-Table");for (var i = 0; i < TableElements.length; i++) {new fabric['Table'](TableElements[i]);}
@@ -85,5 +96,7 @@
                 // Insert Event Here
             });
         }
+        var BreadcrumbHTML = document.querySelector('.ms-Breadcrumb');
+        var Breadcrumb = new fabric['Breadcrumb'](BreadcrumbHTML);
     </script>
 </asp:Content>

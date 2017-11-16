@@ -10,6 +10,7 @@ function initializePage()
     var allFields;
     var contentTypeNameOfCurrentItem;
     var views;
+    var workingWeb;
     var workingList;
     var defaultView;
 
@@ -34,13 +35,10 @@ function initializePage()
             return;
         }
         $('#errorDiv').hide();
-        $('#okbutton').click(function () {
-            window.location.href = hostWebURL;
-            return false;
-        });
         var firstId = selectedItemsIds.split(",")[0];
         var secondId = selectedItemsIds.split(",")[1];
         var hostWebContext = new SP.AppContextSite(clientContext, hostWebURL);
+        workingWeb = hostWebContext.get_web();
         workingList = hostWebContext.get_web().get_lists().getById(listId);
 
         var camlQuery = new SP.CamlQuery();
@@ -55,6 +53,7 @@ function initializePage()
         allFields = workingList.get_fields();
         listContentTypes = workingList.get_contentTypes();
         views = workingList.get_views();
+        clientContext.load(workingWeb);
         clientContext.load(listContentTypes);
         clientContext.load(allFields);
         clientContext.load(views);
@@ -66,6 +65,32 @@ function initializePage()
         bindViews();
         bindCompareBody();
         bindFilterBody();
+        buildBreadcrumb();
+    }
+
+    function buildBreadcrumb()
+    {
+        var clientContext = SP.ClientContext.get_current();
+        clientContext.load(workingList, 'DefaultViewUrl', 'Title', 'ParentWebUrl');
+        clientContext.executeQueryAsync(onBuildBreadCrumb, onBuildBreadCrumbFailed);
+    }
+
+    function onBuildBreadCrumb() {
+        var webTitle = workingWeb.get_title();
+        var webUrl = workingWeb.get_url();
+        var listTitle = workingList.get_title();
+        var listUrl = workingList.get_defaultViewUrl();
+        Breadcrumb.addItem(webTitle, webUrl);
+        Breadcrumb.addItem(listTitle, listUrl);
+        Breadcrumb.addItem("Item Comparer", "");
+        $('#okbutton').click(function () {
+            window.location.href = listUrl;
+            return false;
+        });
+    }
+
+    function onBuildBreadCrumbFailed() {
+        alert('Failed to load list default view url');
     }
 
     var currentViewFields;

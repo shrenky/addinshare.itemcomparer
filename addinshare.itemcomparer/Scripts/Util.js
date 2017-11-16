@@ -19,3 +19,11 @@ function addinshare_collectionToArray(collection)
     }
     return items;
 }   
+
+function addinshare_buildBreadcrumb(web, list)
+{
+    //check null value
+    Breadcrumb.addItem(web.get_title(), web.get_url());
+    Breadcrumb.addItem(list.get_title(), list.get_defaultViewUrl());
+    Breadcrumb.addItem("Item Comparer", "");
+}
