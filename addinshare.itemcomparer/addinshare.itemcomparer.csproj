@@ -48,6 +48,8 @@
     </None>
     <Content Include="Images\16x16.png" />
     <Content Include="Images\32x32.png" />
+    <Content Include="Images\down16x16.png" />
+    <Content Include="Images\ribbon16.png" />
     <Content Include="Pages\Compare.aspx" />
     <Content Include="Pages\ContactUs.aspx" />
     <Content Include="Pages\Elements.xml" />

@@ -24,6 +24,20 @@ function initializePage()
         var hostWebURL = decodeURIComponent(addinshare_getQueryStringParameter("SPHostUrl"));
         var listId = decodeURIComponent(addinshare_getQueryStringParameter("SPListId"));
         var selectedItemsIds = decodeURIComponent(addinshare_getQueryStringParameter("SPListItemId"));
+        if (selectedItemsIds.split(",").length != 2)
+        {
+            alert('Please select two items to compare.');
+            $('#errorDiv').text('Please select two items to compare.');
+            $('#errorDiv').show();
+            $('#navBarDiv').hide();
+            $('#main').hide();
+            return;
+        }
+        $('#errorDiv').hide();
+        $('#okbutton').click(function () {
+            window.location.href = hostWebURL;
+            return false;
+        });
         var firstId = selectedItemsIds.split(",")[0];
         var secondId = selectedItemsIds.split(",")[1];
         var hostWebContext = new SP.AppContextSite(clientContext, hostWebURL);

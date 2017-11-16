@@ -27,16 +27,19 @@
 
 <%-- The markup and script in the following Content element will be placed in the <body> of the page --%>
 <asp:Content ContentPlaceHolderID="PlaceHolderMain" runat="server">
-    <div class="navbar">
+    <div id="errorDiv" class="error"></div>
+    <div id="navBarDiv" class="navbar">
       <div class="dropdown">
-        <button id="viewDDLBtn" class="dropbtn" onclick="return false;"><i class="fa fa-caret-down"></i></button>
-        <div id="viewDDL" class="dropdown-content">
-        </div>
-      </div> 
+        <button id="viewDDLBtn" class="dropbtn" onclick="return false;"><i class="fa fa-caret-down"></i></button><img src="../images/down16x16.png" alt=">" style="float:right; margin-top:17px"/>
+        
+        <div id="viewDDL" class="dropdown-content"></div>
+      </div>
+        <div class="deldiv">Deleted</div>
+        <div class="insdiv">Added</div>
     </div>
-    <div id="main" class="ms-Grid">
+    <div id="main" class="ms-Grid mainpanel">
         <div class="ms-Grid-row">
-            <div id="filterPanel" class="ms-Grid-col ms-sm4 ms-md4 ms-lg4 filterborder">
+            <div id="filterPanel" class="ms-Grid-col ms-sm4 ms-md4 ms-lg4 filterpanel">
                 <table id="filterTable" class="ms-Table ms-Table--selectable">
                   <thead>
                     <tr>
@@ -48,8 +51,8 @@
                   </tbody>
                 </table>
             </div>
-            <div class="ms-Grid-col ms-sm2 ms-md2 ms-lg2"></div>
-            <div class="ms-Grid-col ms-sm6 ms-md6 ms-lg6">
+            <div class="ms-Grid-col ms-sm2 ms-md2 ms-lg2" style="width:5%"></div>
+            <div class="ms-Grid-col ms-sm6 ms-md6 ms-lg6" style="width:75%">
                 <table id="compareTable" class="ms-Table">
                   <thead>
                     <tr>
@@ -62,13 +65,25 @@
 
                   </tbody>
                 </table>
+                <div class="okbutton">
+                    <button id="okbutton" class="ms-Button">
+                      <span class="ms-Button-label">OK</span> 
+                    </button>
+                </div>
             </div>
         </div>
+        
     </div>
     
     
     <script type="text/javascript">
       var TableElements = document.querySelectorAll(".ms-Table");for (var i = 0; i < TableElements.length; i++) {new fabric['Table'](TableElements[i]);}
-      var CheckBoxElements = document.querySelectorAll(".ms-CheckBox");for (var i = 0; i < CheckBoxElements.length; i++) {new fabric['CheckBox'](CheckBoxElements[i]);}
+        var CheckBoxElements = document.querySelectorAll(".ms-CheckBox"); for (var i = 0; i < CheckBoxElements.length; i++) { new fabric['CheckBox'](CheckBoxElements[i]); }
+        var ButtonElements = document.querySelectorAll(".ms-Button");
+        for (var i = 0; i < ButtonElements.length; i++) {
+            new fabric['Button'](ButtonElements[i], function () {
+                // Insert Event Here
+            });
+        }
     </script>
 </asp:Content>
