@@ -60,6 +60,9 @@
     <Content Include="Pages\Default.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="RibbonCustomAction1\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{77843a1f-627c-489d-a59e-90ddcea051e8}</SharePointProjectItemId>
+    </None>
     <None Include="RunComparer\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3dec5810-6745-4d10-bf04-e6893db57aad}</SharePointProjectItemId>
     </None>
@@ -67,6 +70,9 @@
     <None Include="Scripts\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6c9b9103-1f57-48c2-8a29-88d8325a1ad8}</SharePointProjectItemId>
     </None>
+    <Content Include="RibbonCustomAction1\Elements.xml">
+      <OpcRelationship>feature-elementmanifest</OpcRelationship>
+    </Content>
     <Content Include="RunComparer\Elements.xml">
       <OpcRelationship>feature-elementmanifest</OpcRelationship>
     </Content>
