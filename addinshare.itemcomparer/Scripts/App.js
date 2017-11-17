@@ -301,7 +301,14 @@ function initializePage()
                 text = values[internalName];
                 break;
             case "Note":
-                text = values[internalName];
+                if (field.get_richText())
+                {
+                    text = values[internalName];
+                }
+                else
+                {
+                    text = values[internalName];
+                }
                 break;
             case "Number":
                 text = values[internalName];
