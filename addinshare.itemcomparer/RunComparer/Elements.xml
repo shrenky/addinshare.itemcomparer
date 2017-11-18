@@ -42,8 +42,8 @@
       that you want to enable for the custom action.
       -->
       <CommandUIDefinitions>
-        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
-          <Button Id="Ribbon.ListItem.Actions.RunCompareTaskButton"
+        <CommandUIDefinition Location="Ribbon.Tasks.Actions.Controls._children">
+          <Button Id="Ribbon.Tasks.Actions.RunCompareTaskButton"
                   Alt="Compare"
                   Sequence="100"
                   Command="Invoke_RunCompareTaskButtonRequest"

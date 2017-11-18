@@ -126,8 +126,13 @@ function initializePage()
         var fieldsArray = addinshare_collectionToArray(currentViewFields);
         $('#compareBody > tr').each(function () {
             var internalName = $(this).attr('id');
-            if (fieldsArray.indexOf(internalName) > -1) {
-                $(this).show();
+            if (fieldsArray.indexOf(internalName) > -1 || isAlwaysShow(internalName)) {
+                if (!isNoShow(internalName)) {
+                    $(this).show();
+                }
+                else {
+                    $(this).hide();
+                }
             }
             else {
                 $(this).hide();
@@ -139,14 +144,27 @@ function initializePage()
             var internalName = divId.substring(4);
             $(this).children(":first").prop('checked', true);
             $(this)[0].checked = true;
-            if (fieldsArray.indexOf(internalName) > -1) {
-                $(this).show();
+            if (fieldsArray.indexOf(internalName) > -1 || isAlwaysShow(internalName)) {
+                if (!isNoShow(internalName)) {
+                    $(this).show();
+                }
+                else {
+                    $(this).hide();
+                }
             }
             else {
                 $(this).hide();
             }
         });
 
+    }
+
+    function isAlwaysShow(fName) {
+        return fName.toLowerCase() === 'title' || fName.toLowerCase() === 'fileleafref';
+    }
+
+    function isNoShow(fName) {
+        return fName.toLowerCase() === 'linkfilename';
     }
 
     function onGetFieldsFail()
@@ -294,7 +312,7 @@ function initializePage()
     {
         var fieldTypeString = field.get_typeAsString();
         var internalName = field.get_internalName();
-        var text;
+        var text = '';
         switch (fieldTypeString) {
             case "ContentTypeId":
                 text = values[internalName];
@@ -326,6 +344,20 @@ function initializePage()
                     text = values[internalName];
                 }
                 break;
+            case "UserMulti":
+                if (values[internalName] && values[internalName].length !== 0) {
+                    var users = values[internalName];
+                    for (var i = 0; i < users.length; i++) {
+                        if (typeof (users[i].get_lookupValue) !== "undefined") {
+                            text += users[i].get_lookupValue() + ", ";
+                        }
+                    }
+
+                    if (text.length > 1) {
+                        text = text.substring(0, text.length - 2);
+                    }
+                }
+                break;
             case "DateTime":
                 text = values[internalName].toLocaleDateString();
                 break;
@@ -354,7 +386,19 @@ function initializePage()
                 }
                 break;
             case "LookupMulti":
-                text = values[internalName];
+                if (values[internalName] && values[internalName].length !== 0) {
+                    var lookups = values[internalName];
+                    for (var i = 0; i < lookups.length; i++) {
+                        if (typeof (lookups[i].get_lookupValue) !== "undefined") {
+                            text += lookups[i].get_lookupValue() + ", ";
+                        }
+                    }
+
+                    if (text.length > 1) {
+                        text = text.substring(0, text.length - 2);
+                    }
+                }
+                break;
                 break;
             case "TaxonomyFieldType":
                 text = values[internalName].Label;
