@@ -239,4 +239,334 @@
       </CommandUIHandlers>
     </CommandUIExtension >
   </CustomAction>
+
+  <CustomAction Id="4451fa6e-b68a-4975-9259-8a7fdc8a11f2.RibbonButtonForSurvey"
+                RegistrationType="List"
+                RegistrationId="102"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;RibbonButtonForSurvey&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.RibbonButtonForSurveyButton"
+                  Alt="Compare"
+                  Sequence="100"
+                  Command="Invoke_RibbonButtonForSurveyButtonRequest"
+                  LabelText="Compare"
+                  TemplateAlias="o1"
+                  Image32by32="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVMSURBVFhHrVd7aNVlGH6/7+w+tznZ1W26tjmaLgqSCCoSDSKw0IwMCtKKbmRBf0QQERX0bwhFFyi7WDaiosBhRhAUdlHDOsF05dzFbW7qPNvc3Dw739fzfOeyc/udnVM++HHm7/K+z/e+z/t+709Za4X4bND4D44bGZkVCYYvxaCwlheIbK5XsqPZd0346pWBI/BOn7EHzhiZDopoeKPDZBissjyRLSu1bG3U/DvdYzlD7RtY8HcN2c6ZkMiaZUquW65kGRzFWw8hIsenrRy5YKVIi9wNAlsargwJtfNw0D84I53tZUp2tWnpKFdpjfZOW/taj5GhS1Yq8kW2gcRdiMb/JaGZc5ogAS/nRHm+kmJEhphEqr44beTrYaRtQZIUkxs0BUevsJ8THAkQ+BJExufFXrgsdiJpBYJiL5vMBNXGH4J+CK9zK8L5ZBslmB409npvyOmAhUOr1EaJT6QV2uH/IwUVQx700o57t9cpWVWSProxAtsgqsdbvQkY+O2bsdSCcxwWpsiP54zMQcBeL5LE+kolO5s1iaY8FiNwDwg8loFAOlCYr0KYZ+asdEBDbdhtvIGpBSt/BJAu/JLEwyDRkkQC/MLwlp83ihH+PLxHIzesUPL0Gq12xa0XOnxqUy0eQLSOTFjZ02/l1ExiohwB+o4xScKvE9ZyzYcyi8nnsYG6ovA9BEF+mzDy/ikjSGXM1mIEIr/JOHnRylsnUXIjRgJQduRy1oi3GyZhHQnYdbYWN+7BgC14FM3nk0Gw7zcyMJus9cwoQ46KkCqqi4v2Drt0GDkxZfwpERibE/vVsLH7Bo39FMs/ad1LFxdEDo4ZeeMfw1LMmsS1aO0PQnzbm8Jrc72WmiIlR1HOHw/YxQhE9c/ddmG3H4Dhh1i/40GUoEMQTI4FrLyLlMCAJbGlsAKn6J1wugMkuJ6BOG+uUq6MSSIlAoUIVy0YriwOr/Kkg4mNBy3biSv+egYobE4hE27xQtQmhB1HIGKtpVTJc1dreWWdlpfWatlUq2NHdD2I3b9Ku6bSUKw8K5cVg8ihcS0tWkeAhqJMEAFF401onc2lSvHky8fNdRVKnmjVcm+TVhhOvHy7lv0NKubtPpycs0tLJSUCyWDIN1RreQpH9U1V3u2KemCT2YMS2wsNUUvZSHWRQOQ3GTeiwz1yleaw4umcfnqmrLyJCvkWlcKKocj8uPbdmLVch85bO5ummcUIeKEe6ajMEHKCzljbx1CyrBQCx7B0jxrZ/XfIrb0DRnBkp0AXgALfQe5yBmcJOqdIeS7gXwJom9e5OMpFSz0eurU0fI7zsGDPj1xfEhxCfjprsSsrlRDqA6u13AqtUDNEIRzyiH9xrc8tHPWuJyRD7R8O+T8aNJ3nEZ46lFlHmUhptGA9wF2P4Ag+gdmAtbyxxs0SLvzdmK73I/SXoINn232yoSZVO+yybHTBkPzlxvLPTxu2Xzk7nzrVeIGPcYxbD5E+BJGif8QcfT9ubPeodSP8LdVZECAgIvsL0sDaTf4wSQDukejYvJXaQiXPo2l1VqQ64WlXhHO4oTg1mGkJEPMYIDleMcRe4LnARtM1ZFyrfhkd02ve80I8gYQyhHDY+RTE4rmqCt0zrnGBsKC2c0Z0gwUQbAKBbMGdl+LlACrg0LkM4UqDfnTLHoiXpd9Ygo3EpyBboGLs7l4jP2PE4mfc9Rg4m0uU51gWxQwqg92R1VOMrW9vVIkayAV/Tlr7Hvr+cRhkSJdyTtATNVSGFN5Rp+XRFq3+MwHCHzB+fp4dxeiNTzQxjGsGMOcM+23VSu5bzc98kX8B9tyLzQdvTq4AAAAASUVORK5CYII5Z9jvrlRyDz5WyvPVuf8Bvcew2AzEDXsAAAAASUVORK5CYII="
+                  Image16by16="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVDhPfVPPS1RRFP7OfVPmQOWPBswhiWwM0aagIYuiWs6mqF3SqiCMov6A2iS0SGjXKqh1u6gI2zQVthBTochC3wTJmIozpk6No8z47unc915PsdEPLtz3zrnfOd/5QcyMrqEVe2oZARq2ATf3K8RrVIv/a0PQ1cGyvbuaYskGhS0K0Ay8ntbIlTySA9uJfN+KUD+XgDMRheP1RIlaoqN1RPIIY38YD9MaI3lJcRNQsq9s32m1Yid3rUb6tMDcK1nMl4GZZUbYIhircWjfSbjerAJf9xZ8+ThcQ3S71aIbzQpKrB31hIt7FM41KnxeYDwYM0I9iGohWMPwfFJzuuClXSVWU5eDEvV0hCjZQBStBt7M6IDEBAgy6P/FnMoyekY1+nKayxXUx4XsUA1BgqD7q2MHYp5mND/5oTG+yBgvMl5MMeakE+txPqqoJ27RpSaF4Xn2JEiN0Nmk6HHCojaJcKyOcG2fQqTKfQOTyHeRlZpZ7UjY8v4rw7CmBLgQVbjXblFM+m9sRmn/LOO+yHqb+1+Tm0FJu3cXHTIH/hWO+JfkpLKetJG8xpVBh19O6SCV0N4w8Ep6XnQUb3XpPJjIX/KMHSG4LeydZpFEuNvmlW1ozuOg0d+O/WySYxNFT9M/LDlAQdpwK6ZwKqJI7JyR4p7wB84QdH9z0jDLVOm8z2q+/HGFM4uSbgX7wKzmsx/KtruNG6Fr2GGZShypJa9YPsx8vJN5mSjq9KYEBp0DK3ZBdmI9GmXlHyVCLX8B01YWf8GejosAAAAASUVORK5CYIL+eCZ+mcjrmCF4LLEOL1WBGeCAOO7uOIuUcrAKbfKXP9Wp4r8AewtDr3qD6CAAAAAASUVORK5CYII=" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_RibbonButtonForSurveyButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Compare.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+
+  <CustomAction Id="8986c3de-6cf2-4f39-9e81-f23c0053fd84.CompareButtonForProjectTasks"
+                RegistrationType="List"
+                RegistrationId="150"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;CompareButtonForProjectTasks&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.CompareButtonForProjectTasksButton"
+                  Alt="Compare"
+                  Sequence="100"
+                  Command="Invoke_CompareButtonForProjectTasksButtonRequest"
+                  LabelText="Compare"
+                  TemplateAlias="o1"
+                  Image32by32="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVMSURBVFhHrVd7aNVlGH6/7+w+tznZ1W26tjmaLgqSCCoSDSKw0IwMCtKKbmRBf0QQERX0bwhFFyi7WDaiosBhRhAUdlHDOsF05dzFbW7qPNvc3Dw739fzfOeyc/udnVM++HHm7/K+z/e+z/t+709Za4X4bND4D44bGZkVCYYvxaCwlheIbK5XsqPZd0346pWBI/BOn7EHzhiZDopoeKPDZBissjyRLSu1bG3U/DvdYzlD7RtY8HcN2c6ZkMiaZUquW65kGRzFWw8hIsenrRy5YKVIi9wNAlsargwJtfNw0D84I53tZUp2tWnpKFdpjfZOW/taj5GhS1Yq8kW2gcRdiMb/JaGZc5ogAS/nRHm+kmJEhphEqr44beTrYaRtQZIUkxs0BUevsJ8THAkQ+BJExufFXrgsdiJpBYJiL5vMBNXGH4J+CK9zK8L5ZBslmB409npvyOmAhUOr1EaJT6QV2uH/IwUVQx700o57t9cpWVWSProxAtsgqsdbvQkY+O2bsdSCcxwWpsiP54zMQcBeL5LE+kolO5s1iaY8FiNwDwg8loFAOlCYr0KYZ+asdEBDbdhtvIGpBSt/BJAu/JLEwyDRkkQC/MLwlp83ihH+PLxHIzesUPL0Gq12xa0XOnxqUy0eQLSOTFjZ02/l1ExiohwB+o4xScKvE9ZyzYcyi8nnsYG6ovA9BEF+mzDy/ikjSGXM1mIEIr/JOHnRylsnUXIjRgJQduRy1oi3GyZhHQnYdbYWN+7BgC14FM3nk0Gw7zcyMJus9cwoQ46KkCqqi4v2Drt0GDkxZfwpERibE/vVsLH7Bo39FMs/ad1LFxdEDo4ZeeMfw1LMmsS1aO0PQnzbm8Jrc72WmiIlR1HOHw/YxQhE9c/ddmG3H4Dhh1i/40GUoEMQTI4FrLyLlMCAJbGlsAKn6J1wugMkuJ6BOG+uUq6MSSIlAoUIVy0YriwOr/Kkg4mNBy3biSv+egYobE4hE27xQtQmhB1HIGKtpVTJc1dreWWdlpfWatlUq2NHdD2I3b9Ku6bSUKw8K5cVg8ihcS0tWkeAhqJMEAFF401onc2lSvHky8fNdRVKnmjVcm+TVhhOvHy7lv0NKubtPpycs0tLJSUCyWDIN1RreQpH9U1V3u2KemCT2YMS2wsNUUvZSHWRQOQ3GTeiwz1yleaw4umcfnqmrLyJCvkWlcKKocj8uPbdmLVch85bO5ummcUIeKEe6ajMEHKCzljbx1CyrBQCx7B0jxrZ/XfIrb0DRnBkp0AXgALfQe5yBmcJOqdIeS7gXwJom9e5OMpFSz0eurU0fI7zsGDPj1xfEhxCfjprsSsrlRDqA6u13AqtUDNEIRzyiH9xrc8tHPWuJyRD7R8O+T8aNJ3nEZ46lFlHmUhptGA9wF2P4Ag+gdmAtbyxxs0SLvzdmK73I/SXoINn232yoSZVO+yybHTBkPzlxvLPTxu2Xzk7nzrVeIGPcYxbD5E+BJGif8QcfT9ubPeodSP8LdVZECAgIvsL0sDaTf4wSQDukejYvJXaQiXPo2l1VqQ64WlXhHO4oTg1mGkJEPMYIDleMcRe4LnARtM1ZFyrfhkd02ve80I8gYQyhHDY+RTE4rmqCt0zrnGBsKC2c0Z0gwUQbAKBbMGdl+LlACrg0LkM4UqDfnTLHoiXpd9Ygo3EpyBboGLs7l4jP2PE4mfc9Rg4m0uU51gWxQwqg92R1VOMrW9vVIkayAV/Tlr7Hvr+cRhkSJdyTtATNVSGFN5Rp+XRFq3+MwHCHzB+fp4dxeiNTzQxjGsGMOcM+23VSu5bzc98kX8B9tyLzQdvTq4AAAAASUVORK5CYII5Z9jvrlRyDz5WyvPVuf8Bvcew2AzEDXsAAAAASUVORK5CYII="
+                  Image16by16="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVDhPfVPPS1RRFP7OfVPmQOWPBswhiWwM0aagIYuiWs6mqF3SqiCMov6A2iS0SGjXKqh1u6gI2zQVthBTochC3wTJmIozpk6No8z47unc915PsdEPLtz3zrnfOd/5QcyMrqEVe2oZARq2ATf3K8RrVIv/a0PQ1cGyvbuaYskGhS0K0Ay8ntbIlTySA9uJfN+KUD+XgDMRheP1RIlaoqN1RPIIY38YD9MaI3lJcRNQsq9s32m1Yid3rUb6tMDcK1nMl4GZZUbYIhircWjfSbjerAJf9xZ8+ThcQ3S71aIbzQpKrB31hIt7FM41KnxeYDwYM0I9iGohWMPwfFJzuuClXSVWU5eDEvV0hCjZQBStBt7M6IDEBAgy6P/FnMoyekY1+nKayxXUx4XsUA1BgqD7q2MHYp5mND/5oTG+yBgvMl5MMeakE+txPqqoJ27RpSaF4Xn2JEiN0Nmk6HHCojaJcKyOcG2fQqTKfQOTyHeRlZpZ7UjY8v4rw7CmBLgQVbjXblFM+m9sRmn/LOO+yHqb+1+Tm0FJu3cXHTIH/hWO+JfkpLKetJG8xpVBh19O6SCV0N4w8Ep6XnQUb3XpPJjIX/KMHSG4LeydZpFEuNvmlW1ozuOg0d+O/WySYxNFT9M/LDlAQdpwK6ZwKqJI7JyR4p7wB84QdH9z0jDLVOm8z2q+/HGFM4uSbgX7wKzmsx/KtruNG6Fr2GGZShypJa9YPsx8vJN5mSjq9KYEBp0DK3ZBdmI9GmXlHyVCLX8B01YWf8GejosAAAAASUVORK5CYIL+eCZ+mcjrmCF4LLEOL1WBGeCAOO7uOIuUcrAKbfKXP9Wp4r8AewtDr3qD6CAAAAAASUVORK5CYII=" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_CompareButtonForProjectTasksButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Compare.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+
+  <CustomAction Id="d498f7fd-5f5f-4b3a-bc52-7bf65a52ea36.CompareButtonForFormLib"
+                RegistrationType="List"
+                RegistrationId="115"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;CompareButtonForFormLib&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.CompareButtonForFormLibButton"
+                  Alt="Compare"
+                  Sequence="100"
+                  Command="Invoke_CompareButtonForFormLibButtonRequest"
+                  LabelText="Compare"
+                  TemplateAlias="o1"
+                  Image32by32="data:image/png;base64,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"
+                  Image16by16="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVDhPfVPPS1RRFP7OfVPmQOWPBswhiWwM0aagIYuiWs6mqF3SqiCMov6A2iS0SGjXKqh1u6gI2zQVthBTochC3wTJmIozpk6No8z47unc915PsdEPLtz3zrnfOd/5QcyMrqEVe2oZARq2ATf3K8RrVIv/a0PQ1cGyvbuaYskGhS0K0Ay8ntbIlTySA9uJfN+KUD+XgDMRheP1RIlaoqN1RPIIY38YD9MaI3lJcRNQsq9s32m1Yid3rUb6tMDcK1nMl4GZZUbYIhircWjfSbjerAJf9xZ8+ThcQ3S71aIbzQpKrB31hIt7FM41KnxeYDwYM0I9iGohWMPwfFJzuuClXSVWU5eDEvV0hCjZQBStBt7M6IDEBAgy6P/FnMoyekY1+nKayxXUx4XsUA1BgqD7q2MHYp5mND/5oTG+yBgvMl5MMeakE+txPqqoJ27RpSaF4Xn2JEiN0Nmk6HHCojaJcKyOcG2fQqTKfQOTyHeRlZpZ7UjY8v4rw7CmBLgQVbjXblFM+m9sRmn/LOO+yHqb+1+Tm0FJu3cXHTIH/hWO+JfkpLKetJG8xpVBh19O6SCV0N4w8Ep6XnQUb3XpPJjIX/KMHSG4LeydZpFEuNvmlW1ozuOg0d+O/WySYxNFT9M/LDlAQdpwK6ZwKqJI7JyR4p7wB84QdH9z0jDLVOm8z2q+/HGFM4uSbgX7wKzmsx/KtruNG6Fr2GGZShypJa9YPsx8vJN5mSjq9KYEBp0DK3ZBdmI9GmXlHyVCLX8B01YWf8GejosAAAAASUVORK5CYIL+eCZ+mcjrmCF4LLEOL1WBGeCAOO7uOIuUcrAKbfKXP9Wp4r8AewtDr3qD6CAAAAAASUVORK5CYII=" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_CompareButtonForFormLibButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Compare.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+
+  <CustomAction Id="69dc5cdf-4b4e-458d-9ca4-f234f6075a50.CompareButtonForDiscussionBoard"
+                RegistrationType="List"
+                RegistrationId="108"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;CompareButtonForDiscussionBoard&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.CompareButtonForDiscussionBoardButton"
+                  Alt="Compare"
+                  Sequence="100"
+                  Command="Invoke_CompareButtonForDiscussionBoardButtonRequest"
+                  LabelText="Compare"
+                  TemplateAlias="o1"
+                  Image32by32="data:image/png;base64,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"
+                  Image16by16="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVDhPfVPPS1RRFP7OfVPmQOWPBswhiWwM0aagIYuiWs6mqF3SqiCMov6A2iS0SGjXKqh1u6gI2zQVthBTochC3wTJmIozpk6No8z47unc915PsdEPLtz3zrnfOd/5QcyMrqEVe2oZARq2ATf3K8RrVIv/a0PQ1cGyvbuaYskGhS0K0Ay8ntbIlTySA9uJfN+KUD+XgDMRheP1RIlaoqN1RPIIY38YD9MaI3lJcRNQsq9s32m1Yid3rUb6tMDcK1nMl4GZZUbYIhircWjfSbjerAJf9xZ8+ThcQ3S71aIbzQpKrB31hIt7FM41KnxeYDwYM0I9iGohWMPwfFJzuuClXSVWU5eDEvV0hCjZQBStBt7M6IDEBAgy6P/FnMoyekY1+nKayxXUx4XsUA1BgqD7q2MHYp5mND/5oTG+yBgvMl5MMeakE+txPqqoJ27RpSaF4Xn2JEiN0Nmk6HHCojaJcKyOcG2fQqTKfQOTyHeRlZpZ7UjY8v4rw7CmBLgQVbjXblFM+m9sRmn/LOO+yHqb+1+Tm0FJu3cXHTIH/hWO+JfkpLKetJG8xpVBh19O6SCV0N4w8Ep6XnQUb3XpPJjIX/KMHSG4LeydZpFEuNvmlW1ozuOg0d+O/WySYxNFT9M/LDlAQdpwK6ZwKqJI7JyR4p7wB84QdH9z0jDLVOm8z2q+/HGFM4uSbgX7wKzmsx/KtruNG6Fr2GGZShypJa9YPsx8vJN5mSjq9KYEBp0DK3ZBdmI9GmXlHyVCLX8B01YWf8GejosAAAAASUVORK5CYIL+eCZ+mcjrmCF4LLEOL1WBGeCAOO7uOIuUcrAKbfKXP9Wp4r8AewtDr3qD6CAAAAAASUVORK5CYII=" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_CompareButtonForDiscussionBoardButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Compare.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+
+  <CustomAction Id="a64a7b4b-3518-4463-9f2b-d7656d51e722.CompareButtonForPictureLib"
+                RegistrationType="List"
+                RegistrationId="109"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;CompareButtonForPictureLib&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.CompareButtonForPictureLibButton"
+                  Alt="Compare"
+                  Sequence="100"
+                  Command="Invoke_CompareButtonForPictureLibButtonRequest"
+                  LabelText="Compare"
+                  TemplateAlias="o1"
+                  Image32by32="data:image/png;base64,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"
+                  Image16by16="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVDhPfVPPS1RRFP7OfVPmQOWPBswhiWwM0aagIYuiWs6mqF3SqiCMov6A2iS0SGjXKqh1u6gI2zQVthBTochC3wTJmIozpk6No8z47unc915PsdEPLtz3zrnfOd/5QcyMrqEVe2oZARq2ATf3K8RrVIv/a0PQ1cGyvbuaYskGhS0K0Ay8ntbIlTySA9uJfN+KUD+XgDMRheP1RIlaoqN1RPIIY38YD9MaI3lJcRNQsq9s32m1Yid3rUb6tMDcK1nMl4GZZUbYIhircWjfSbjerAJf9xZ8+ThcQ3S71aIbzQpKrB31hIt7FM41KnxeYDwYM0I9iGohWMPwfFJzuuClXSVWU5eDEvV0hCjZQBStBt7M6IDEBAgy6P/FnMoyekY1+nKayxXUx4XsUA1BgqD7q2MHYp5mND/5oTG+yBgvMl5MMeakE+txPqqoJ27RpSaF4Xn2JEiN0Nmk6HHCojaJcKyOcG2fQqTKfQOTyHeRlZpZ7UjY8v4rw7CmBLgQVbjXblFM+m9sRmn/LOO+yHqb+1+Tm0FJu3cXHTIH/hWO+JfkpLKetJG8xpVBh19O6SCV0N4w8Ep6XnQUb3XpPJjIX/KMHSG4LeydZpFEuNvmlW1ozuOg0d+O/WySYxNFT9M/LDlAQdpwK6ZwKqJI7JyR4p7wB84QdH9z0jDLVOm8z2q+/HGFM4uSbgX7wKzmsx/KtruNG6Fr2GGZShypJa9YPsx8vJN5mSjq9KYEBp0DK3ZBdmI9GmXlHyVCLX8B01YWf8GejosAAAAASUVORK5CYIL+eCZ+mcjrmCF4LLEOL1WBGeCAOO7uOIuUcrAKbfKXP9Wp4r8AewtDr3qD6CAAAAAASUVORK5CYII=" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_CompareButtonForPictureLibButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Compare.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+
+  <CustomAction Id="90493ee2-f278-4b36-8bf8-7663848aa8ec.CompareButtonForReportLib"
+                RegistrationType="List"
+                RegistrationId="433"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;CompareButtonForReportLib&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.CompareButtonForReportLibButton"
+                  Alt="Compare"
+                  Sequence="100"
+                  Command="Invoke_CompareButtonForReportLibButtonRequest"
+                  LabelText="Compare"
+                  TemplateAlias="o1"
+                  Image32by32="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVMSURBVFhHrVd7aNVlGH6/7+w+tznZ1W26tjmaLgqSCCoSDSKw0IwMCtKKbmRBf0QQERX0bwhFFyi7WDaiosBhRhAUdlHDOsF05dzFbW7qPNvc3Dw739fzfOeyc/udnVM++HHm7/K+z/e+z/t+709Za4X4bND4D44bGZkVCYYvxaCwlheIbK5XsqPZd0346pWBI/BOn7EHzhiZDopoeKPDZBissjyRLSu1bG3U/DvdYzlD7RtY8HcN2c6ZkMiaZUquW65kGRzFWw8hIsenrRy5YKVIi9wNAlsargwJtfNw0D84I53tZUp2tWnpKFdpjfZOW/taj5GhS1Yq8kW2gcRdiMb/JaGZc5ogAS/nRHm+kmJEhphEqr44beTrYaRtQZIUkxs0BUevsJ8THAkQ+BJExufFXrgsdiJpBYJiL5vMBNXGH4J+CK9zK8L5ZBslmB409npvyOmAhUOr1EaJT6QV2uH/IwUVQx700o57t9cpWVWSProxAtsgqsdbvQkY+O2bsdSCcxwWpsiP54zMQcBeL5LE+kolO5s1iaY8FiNwDwg8loFAOlCYr0KYZ+asdEBDbdhtvIGpBSt/BJAu/JLEwyDRkkQC/MLwlp83ihH+PLxHIzesUPL0Gq12xa0XOnxqUy0eQLSOTFjZ02/l1ExiohwB+o4xScKvE9ZyzYcyi8nnsYG6ovA9BEF+mzDy/ikjSGXM1mIEIr/JOHnRylsnUXIjRgJQduRy1oi3GyZhHQnYdbYWN+7BgC14FM3nk0Gw7zcyMJus9cwoQ46KkCqqi4v2Drt0GDkxZfwpERibE/vVsLH7Bo39FMs/ad1LFxdEDo4ZeeMfw1LMmsS1aO0PQnzbm8Jrc72WmiIlR1HOHw/YxQhE9c/ddmG3H4Dhh1i/40GUoEMQTI4FrLyLlMCAJbGlsAKn6J1wugMkuJ6BOG+uUq6MSSIlAoUIVy0YriwOr/Kkg4mNBy3biSv+egYobE4hE27xQtQmhB1HIGKtpVTJc1dreWWdlpfWatlUq2NHdD2I3b9Ku6bSUKw8K5cVg8ihcS0tWkeAhqJMEAFF401onc2lSvHky8fNdRVKnmjVcm+TVhhOvHy7lv0NKubtPpycs0tLJSUCyWDIN1RreQpH9U1V3u2KemCT2YMS2wsNUUvZSHWRQOQ3GTeiwz1yleaw4umcfnqmrLyJCvkWlcKKocj8uPbdmLVch85bO5ummcUIeKEe6ajMEHKCzljbx1CyrBQCx7B0jxrZ/XfIrb0DRnBkp0AXgALfQe5yBmcJOqdIeS7gXwJom9e5OMpFSz0eurU0fI7zsGDPj1xfEhxCfjprsSsrlRDqA6u13AqtUDNEIRzyiH9xrc8tHPWuJyRD7R8O+T8aNJ3nEZ46lFlHmUhptGA9wF2P4Ag+gdmAtbyxxs0SLvzdmK73I/SXoINn232yoSZVO+yybHTBkPzlxvLPTxu2Xzk7nzrVeIGPcYxbD5E+BJGif8QcfT9ubPeodSP8LdVZECAgIvsL0sDaTf4wSQDukejYvJXaQiXPo2l1VqQ64WlXhHO4oTg1mGkJEPMYIDleMcRe4LnARtM1ZFyrfhkd02ve80I8gYQyhHDY+RTE4rmqCt0zrnGBsKC2c0Z0gwUQbAKBbMGdl+LlACrg0LkM4UqDfnTLHoiXpd9Ygo3EpyBboGLs7l4jP2PE4mfc9Rg4m0uU51gWxQwqg92R1VOMrW9vVIkayAV/Tlr7Hvr+cRhkSJdyTtATNVSGFN5Rp+XRFq3+MwHCHzB+fp4dxeiNTzQxjGsGMOcM+23VSu5bzc98kX8B9tyLzQdvTq4AAAAASUVORK5CYII5Z9jvrlRyDz5WyvPVuf8Bvcew2AzEDXsAAAAASUVORK5CYII="
+                  Image16by16="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVDhPfVPPS1RRFP7OfVPmQOWPBswhiWwM0aagIYuiWs6mqF3SqiCMov6A2iS0SGjXKqh1u6gI2zQVthBTochC3wTJmIozpk6No8z47unc915PsdEPLtz3zrnfOd/5QcyMrqEVe2oZARq2ATf3K8RrVIv/a0PQ1cGyvbuaYskGhS0K0Ay8ntbIlTySA9uJfN+KUD+XgDMRheP1RIlaoqN1RPIIY38YD9MaI3lJcRNQsq9s32m1Yid3rUb6tMDcK1nMl4GZZUbYIhircWjfSbjerAJf9xZ8+ThcQ3S71aIbzQpKrB31hIt7FM41KnxeYDwYM0I9iGohWMPwfFJzuuClXSVWU5eDEvV0hCjZQBStBt7M6IDEBAgy6P/FnMoyekY1+nKayxXUx4XsUA1BgqD7q2MHYp5mND/5oTG+yBgvMl5MMeakE+txPqqoJ27RpSaF4Xn2JEiN0Nmk6HHCojaJcKyOcG2fQqTKfQOTyHeRlZpZ7UjY8v4rw7CmBLgQVbjXblFM+m9sRmn/LOO+yHqb+1+Tm0FJu3cXHTIH/hWO+JfkpLKetJG8xpVBh19O6SCV0N4w8Ep6XnQUb3XpPJjIX/KMHSG4LeydZpFEuNvmlW1ozuOg0d+O/WySYxNFT9M/LDlAQdpwK6ZwKqJI7JyR4p7wB84QdH9z0jDLVOm8z2q+/HGFM4uSbgX7wKzmsx/KtruNG6Fr2GGZShypJa9YPsx8vJN5mSjq9KYEBp0DK3ZBdmI9GmXlHyVCLX8B01YWf8GejosAAAAASUVORK5CYIL+eCZ+mcjrmCF4LLEOL1WBGeCAOO7uOIuUcrAKbfKXP9Wp4r8AewtDr3qD6CAAAAAASUVORK5CYII=" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_CompareButtonForReportLibButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Compare.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+
+  <CustomAction Id="106adb36-983c-4dab-a604-efe9fced0f9d.CompareButtonForLinksList"
+                RegistrationType="List"
+                RegistrationId="103"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;CompareButtonForLinksList&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.CompareButtonForLinksListButton"
+                  Alt="Compare"
+                  Sequence="100"
+                  Command="Invoke_CompareButtonForLinksListButtonRequest"
+                  LabelText="Compare"
+                  TemplateAlias="o1"
+                  Image32by32="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAVMSURBVFhHrVd7aNVlGH6/7+w+tznZ1W26tjmaLgqSCCoSDSKw0IwMCtKKbmRBf0QQERX0bwhFFyi7WDaiosBhRhAUdlHDOsF05dzFbW7qPNvc3Dw739fzfOeyc/udnVM++HHm7/K+z/e+z/t+709Za4X4bND4D44bGZkVCYYvxaCwlheIbK5XsqPZd0346pWBI/BOn7EHzhiZDopoeKPDZBissjyRLSu1bG3U/DvdYzlD7RtY8HcN2c6ZkMiaZUquW65kGRzFWw8hIsenrRy5YKVIi9wNAlsargwJtfNw0D84I53tZUp2tWnpKFdpjfZOW/taj5GhS1Yq8kW2gcRdiMb/JaGZc5ogAS/nRHm+kmJEhphEqr44beTrYaRtQZIUkxs0BUevsJ8THAkQ+BJExufFXrgsdiJpBYJiL5vMBNXGH4J+CK9zK8L5ZBslmB409npvyOmAhUOr1EaJT6QV2uH/IwUVQx700o57t9cpWVWSProxAtsgqsdbvQkY+O2bsdSCcxwWpsiP54zMQcBeL5LE+kolO5s1iaY8FiNwDwg8loFAOlCYr0KYZ+asdEBDbdhtvIGpBSt/BJAu/JLEwyDRkkQC/MLwlp83ihH+PLxHIzesUPL0Gq12xa0XOnxqUy0eQLSOTFjZ02/l1ExiohwB+o4xScKvE9ZyzYcyi8nnsYG6ovA9BEF+mzDy/ikjSGXM1mIEIr/JOHnRylsnUXIjRgJQduRy1oi3GyZhHQnYdbYWN+7BgC14FM3nk0Gw7zcyMJus9cwoQ46KkCqqi4v2Drt0GDkxZfwpERibE/vVsLH7Bo39FMs/ad1LFxdEDo4ZeeMfw1LMmsS1aO0PQnzbm8Jrc72WmiIlR1HOHw/YxQhE9c/ddmG3H4Dhh1i/40GUoEMQTI4FrLyLlMCAJbGlsAKn6J1wugMkuJ6BOG+uUq6MSSIlAoUIVy0YriwOr/Kkg4mNBy3biSv+egYobE4hE27xQtQmhB1HIGKtpVTJc1dreWWdlpfWatlUq2NHdD2I3b9Ku6bSUKw8K5cVg8ihcS0tWkeAhqJMEAFF401onc2lSvHky8fNdRVKnmjVcm+TVhhOvHy7lv0NKubtPpycs0tLJSUCyWDIN1RreQpH9U1V3u2KemCT2YMS2wsNUUvZSHWRQOQ3GTeiwz1yleaw4umcfnqmrLyJCvkWlcKKocj8uPbdmLVch85bO5ummcUIeKEe6ajMEHKCzljbx1CyrBQCx7B0jxrZ/XfIrb0DRnBkp0AXgALfQe5yBmcJOqdIeS7gXwJom9e5OMpFSz0eurU0fI7zsGDPj1xfEhxCfjprsSsrlRDqA6u13AqtUDNEIRzyiH9xrc8tHPWuJyRD7R8O+T8aNJ3nEZ46lFlHmUhptGA9wF2P4Ag+gdmAtbyxxs0SLvzdmK73I/SXoINn232yoSZVO+yybHTBkPzlxvLPTxu2Xzk7nzrVeIGPcYxbD5E+BJGif8QcfT9ubPeodSP8LdVZECAgIvsL0sDaTf4wSQDukejYvJXaQiXPo2l1VqQ64WlXhHO4oTg1mGkJEPMYIDleMcRe4LnARtM1ZFyrfhkd02ve80I8gYQyhHDY+RTE4rmqCt0zrnGBsKC2c0Z0gwUQbAKBbMGdl+LlACrg0LkM4UqDfnTLHoiXpd9Ygo3EpyBboGLs7l4jP2PE4mfc9Rg4m0uU51gWxQwqg92R1VOMrW9vVIkayAV/Tlr7Hvr+cRhkSJdyTtATNVSGFN5Rp+XRFq3+MwHCHzB+fp4dxeiNTzQxjGsGMOcM+23VSu5bzc98kX8B9tyLzQdvTq4AAAAASUVORK5CYII5Z9jvrlRyDz5WyvPVuf8Bvcew2AzEDXsAAAAASUVORK5CYII="
+                  Image16by16="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVDhPfVPPS1RRFP7OfVPmQOWPBswhiWwM0aagIYuiWs6mqF3SqiCMov6A2iS0SGjXKqh1u6gI2zQVthBTochC3wTJmIozpk6No8z47unc915PsdEPLtz3zrnfOd/5QcyMrqEVe2oZARq2ATf3K8RrVIv/a0PQ1cGyvbuaYskGhS0K0Ay8ntbIlTySA9uJfN+KUD+XgDMRheP1RIlaoqN1RPIIY38YD9MaI3lJcRNQsq9s32m1Yid3rUb6tMDcK1nMl4GZZUbYIhircWjfSbjerAJf9xZ8+ThcQ3S71aIbzQpKrB31hIt7FM41KnxeYDwYM0I9iGohWMPwfFJzuuClXSVWU5eDEvV0hCjZQBStBt7M6IDEBAgy6P/FnMoyekY1+nKayxXUx4XsUA1BgqD7q2MHYp5mND/5oTG+yBgvMl5MMeakE+txPqqoJ27RpSaF4Xn2JEiN0Nmk6HHCojaJcKyOcG2fQqTKfQOTyHeRlZpZ7UjY8v4rw7CmBLgQVbjXblFM+m9sRmn/LOO+yHqb+1+Tm0FJu3cXHTIH/hWO+JfkpLKetJG8xpVBh19O6SCV0N4w8Ep6XnQUb3XpPJjIX/KMHSG4LeydZpFEuNvmlW1ozuOg0d+O/WySYxNFT9M/LDlAQdpwK6ZwKqJI7JyR4p7wB84QdH9z0jDLVOm8z2q+/HGFM4uSbgX7wKzmsx/KtruNG6Fr2GGZShypJa9YPsx8vJN5mSjq9KYEBp0DK3ZBdmI9GmXlHyVCLX8B01YWf8GejosAAAAASUVORK5CYIL+eCZ+mcjrmCF4LLEOL1WBGeCAOO7uOIuUcrAKbfKXP9Wp4r8AewtDr3qD6CAAAAAASUVORK5CYII=" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_CompareButtonForLinksListButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Compare.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+
+  <CustomAction Id="275b91ca-5952-4f86-9dbe-e585d6170ed3.CompareButtonForWorkflowList"
+                RegistrationType="List"
+                RegistrationId="140"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;CompareButtonForWorkflowList&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.CompareButtonForWorkflowListButton"
+                  Alt="Compare"
+                  Sequence="100"
+                  Command="Invoke_CompareButtonForWorkflowListButtonRequest"
+                  LabelText="Compare"
+                  TemplateAlias="o1"
+                  Image32by32="data:image/png;base64,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"
+                  Image16by16="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVDhPfVPPS1RRFP7OfVPmQOWPBswhiWwM0aagIYuiWs6mqF3SqiCMov6A2iS0SGjXKqh1u6gI2zQVthBTochC3wTJmIozpk6No8z47unc915PsdEPLtz3zrnfOd/5QcyMrqEVe2oZARq2ATf3K8RrVIv/a0PQ1cGyvbuaYskGhS0K0Ay8ntbIlTySA9uJfN+KUD+XgDMRheP1RIlaoqN1RPIIY38YD9MaI3lJcRNQsq9s32m1Yid3rUb6tMDcK1nMl4GZZUbYIhircWjfSbjerAJf9xZ8+ThcQ3S71aIbzQpKrB31hIt7FM41KnxeYDwYM0I9iGohWMPwfFJzuuClXSVWU5eDEvV0hCjZQBStBt7M6IDEBAgy6P/FnMoyekY1+nKayxXUx4XsUA1BgqD7q2MHYp5mND/5oTG+yBgvMl5MMeakE+txPqqoJ27RpSaF4Xn2JEiN0Nmk6HHCojaJcKyOcG2fQqTKfQOTyHeRlZpZ7UjY8v4rw7CmBLgQVbjXblFM+m9sRmn/LOO+yHqb+1+Tm0FJu3cXHTIH/hWO+JfkpLKetJG8xpVBh19O6SCV0N4w8Ep6XnQUb3XpPJjIX/KMHSG4LeydZpFEuNvmlW1ozuOg0d+O/WySYxNFT9M/LDlAQdpwK6ZwKqJI7JyR4p7wB84QdH9z0jDLVOm8z2q+/HGFM4uSbgX7wKzmsx/KtruNG6Fr2GGZShypJa9YPsx8vJN5mSjq9KYEBp0DK3ZBdmI9GmXlHyVCLX8B01YWf8GejosAAAAASUVORK5CYIL+eCZ+mcjrmCF4LLEOL1WBGeCAOO7uOIuUcrAKbfKXP9Wp4r8AewtDr3qD6CAAAAAASUVORK5CYII=" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_CompareButtonForWorkflowListButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Compare.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+
+  <CustomAction Id="abd278dc-a9c5-432c-9c27-0efe16271e09.CompareButtonForWikiPageLib"
+                RegistrationType="List"
+                RegistrationId="119"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;CompareButtonForWikiPageLib&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.CompareButtonForWikiPageLibButton"
+                  Alt="Compare"
+                  Sequence="100"
+                  Command="Invoke_CompareButtonForWikiPageLibButtonRequest"
+                  LabelText="Compare"
+                  TemplateAlias="o1"
+                  Image32by32="data:image/png;base64,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"
+                  Image16by16="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVDhPfVPPS1RRFP7OfVPmQOWPBswhiWwM0aagIYuiWs6mqF3SqiCMov6A2iS0SGjXKqh1u6gI2zQVthBTochC3wTJmIozpk6No8z47unc915PsdEPLtz3zrnfOd/5QcyMrqEVe2oZARq2ATf3K8RrVIv/a0PQ1cGyvbuaYskGhS0K0Ay8ntbIlTySA9uJfN+KUD+XgDMRheP1RIlaoqN1RPIIY38YD9MaI3lJcRNQsq9s32m1Yid3rUb6tMDcK1nMl4GZZUbYIhircWjfSbjerAJf9xZ8+ThcQ3S71aIbzQpKrB31hIt7FM41KnxeYDwYM0I9iGohWMPwfFJzuuClXSVWU5eDEvV0hCjZQBStBt7M6IDEBAgy6P/FnMoyekY1+nKayxXUx4XsUA1BgqD7q2MHYp5mND/5oTG+yBgvMl5MMeakE+txPqqoJ27RpSaF4Xn2JEiN0Nmk6HHCojaJcKyOcG2fQqTKfQOTyHeRlZpZ7UjY8v4rw7CmBLgQVbjXblFM+m9sRmn/LOO+yHqb+1+Tm0FJu3cXHTIH/hWO+JfkpLKetJG8xpVBh19O6SCV0N4w8Ep6XnQUb3XpPJjIX/KMHSG4LeydZpFEuNvmlW1ozuOg0d+O/WySYxNFT9M/LDlAQdpwK6ZwKqJI7JyR4p7wB84QdH9z0jDLVOm8z2q+/HGFM4uSbgX7wKzmsx/KtruNG6Fr2GGZShypJa9YPsx8vJN5mSjq9KYEBp0DK3ZBdmI9GmXlHyVCLX8B01YWf8GejosAAAAASUVORK5CYIL+eCZ+mcjrmCF4LLEOL1WBGeCAOO7uOIuUcrAKbfKXP9Wp4r8AewtDr3qD6CAAAAAASUVORK5CYII=" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_CompareButtonForWikiPageLibButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Compare.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+
+  <CustomAction Id="49774b77-899d-4dd2-92bd-67fb7b9f2b2e.CompareButtonForStatusList"
+                RegistrationType="List"
+                RegistrationId="432"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;CompareButtonForStatusList&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.CompareButtonForStatusListButton"
+                  Alt="Compare"
+                  Sequence="100"
+                  Command="Invoke_CompareButtonForStatusListButtonRequest"
+                  LabelText="Compare"
+                  TemplateAlias="o1"
+                  Image32by32="data:image/png;base64,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"
+                  Image16by16="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVDhPfVPPS1RRFP7OfVPmQOWPBswhiWwM0aagIYuiWs6mqF3SqiCMov6A2iS0SGjXKqh1u6gI2zQVthBTochC3wTJmIozpk6No8z47unc915PsdEPLtz3zrnfOd/5QcyMrqEVe2oZARq2ATf3K8RrVIv/a0PQ1cGyvbuaYskGhS0K0Ay8ntbIlTySA9uJfN+KUD+XgDMRheP1RIlaoqN1RPIIY38YD9MaI3lJcRNQsq9s32m1Yid3rUb6tMDcK1nMl4GZZUbYIhircWjfSbjerAJf9xZ8+ThcQ3S71aIbzQpKrB31hIt7FM41KnxeYDwYM0I9iGohWMPwfFJzuuClXSVWU5eDEvV0hCjZQBStBt7M6IDEBAgy6P/FnMoyekY1+nKayxXUx4XsUA1BgqD7q2MHYp5mND/5oTG+yBgvMl5MMeakE+txPqqoJ27RpSaF4Xn2JEiN0Nmk6HHCojaJcKyOcG2fQqTKfQOTyHeRlZpZ7UjY8v4rw7CmBLgQVbjXblFM+m9sRmn/LOO+yHqb+1+Tm0FJu3cXHTIH/hWO+JfkpLKetJG8xpVBh19O6SCV0N4w8Ep6XnQUb3XpPJjIX/KMHSG4LeydZpFEuNvmlW1ozuOg0d+O/WySYxNFT9M/LDlAQdpwK6ZwKqJI7JyR4p7wB84QdH9z0jDLVOm8z2q+/HGFM4uSbgX7wKzmsx/KtruNG6Fr2GGZShypJa9YPsx8vJN5mSjq9KYEBp0DK3ZBdmI9GmXlHyVCLX8B01YWf8GejosAAAAASUVORK5CYIL+eCZ+mcjrmCF4LLEOL1WBGeCAOO7uOIuUcrAKbfKXP9Wp4r8AewtDr3qD6CAAAAAASUVORK5CYII=" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_CompareButtonForStatusListButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Compare.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
+
+  <CustomAction Id="b1c30178-40e5-4fa4-9c09-a00193c81f01.CompareButtonForPromotedLinks"
+                RegistrationType="List"
+                RegistrationId="170"
+                Location="CommandUI.Ribbon"
+                Sequence="10001"
+                Title="Invoke &apos;CompareButtonForPromotedLinks&apos; action">
+    <CommandUIExtension>
+      <!-- 
+      Update the UI definitions below with the controls and the command actions
+      that you want to enable for the custom action.
+      -->
+      <CommandUIDefinitions>
+        <CommandUIDefinition Location="Ribbon.ListItem.Actions.Controls._children">
+          <Button Id="Ribbon.ListItem.Actions.CompareButtonForPromotedLinksButton"
+                  Alt="Compare"
+                  Sequence="100"
+                  Command="Invoke_CompareButtonForPromotedLinksButtonRequest"
+                  LabelText="Compare"
+                  TemplateAlias="o1"
+                 Image32by32="data:image/png;base64,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"
+                  Image16by16="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJASURBVDhPfVPPS1RRFP7OfVPmQOWPBswhiWwM0aagIYuiWs6mqF3SqiCMov6A2iS0SGjXKqh1u6gI2zQVthBTochC3wTJmIozpk6No8z47unc915PsdEPLtz3zrnfOd/5QcyMrqEVe2oZARq2ATf3K8RrVIv/a0PQ1cGyvbuaYskGhS0K0Ay8ntbIlTySA9uJfN+KUD+XgDMRheP1RIlaoqN1RPIIY38YD9MaI3lJcRNQsq9s32m1Yid3rUb6tMDcK1nMl4GZZUbYIhircWjfSbjerAJf9xZ8+ThcQ3S71aIbzQpKrB31hIt7FM41KnxeYDwYM0I9iGohWMPwfFJzuuClXSVWU5eDEvV0hCjZQBStBt7M6IDEBAgy6P/FnMoyekY1+nKayxXUx4XsUA1BgqD7q2MHYp5mND/5oTG+yBgvMl5MMeakE+txPqqoJ27RpSaF4Xn2JEiN0Nmk6HHCojaJcKyOcG2fQqTKfQOTyHeRlZpZ7UjY8v4rw7CmBLgQVbjXblFM+m9sRmn/LOO+yHqb+1+Tm0FJu3cXHTIH/hWO+JfkpLKetJG8xpVBh19O6SCV0N4w8Ep6XnQUb3XpPJjIX/KMHSG4LeydZpFEuNvmlW1ozuOg0d+O/WySYxNFT9M/LDlAQdpwK6ZwKqJI7JyR4p7wB84QdH9z0jDLVOm8z2q+/HGFM4uSbgX7wKzmsx/KtruNG6Fr2GGZShypJa9YPsx8vJN5mSjq9KYEBp0DK3ZBdmI9GmXlHyVCLX8B01YWf8GejosAAAAASUVORK5CYIL+eCZ+mcjrmCF4LLEOL1WBGeCAOO7uOIuUcrAKbfKXP9Wp4r8AewtDr3qD6CAAAAAASUVORK5CYII=" />
+        </CommandUIDefinition>
+      </CommandUIDefinitions>
+      <CommandUIHandlers>
+        <CommandUIHandler Command="Invoke_CompareButtonForPromotedLinksButtonRequest"
+                          CommandAction="~appWebUrl/Pages/Compare.aspx?{StandardTokens}&amp;SPListItemId={SelectedItemId}&amp;SPListId={SelectedListId}"/>
+      </CommandUIHandlers>
+    </CommandUIExtension >
+  </CustomAction>
 </Elements>
