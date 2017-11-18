@@ -32,6 +32,7 @@ function initializePage()
             $('#errorDiv').show();
             $('#navBarDiv').hide();
             $('#main').hide();
+            window.history.go(-1);
             return;
         }
         $('#errorDiv').hide();
@@ -84,7 +85,8 @@ function initializePage()
         Breadcrumb.addItem(listTitle, listUrl);
         Breadcrumb.addItem("Item Comparer", "");
         $('#okbutton').click(function () {
-            window.location.href = listUrl;
+            //window.location.href = listUrl;
+            window.history.go(-1);
             return false;
         });
     }
@@ -382,7 +384,7 @@ function initializePage()
                 text = "NaN";
         }
 
-        return text.toString();
+        return (text === null || typeof(text) === 'undefined') ? '':text.toString();
     }
 
     function getContentTypeOfCurrentItem(listItem) {
