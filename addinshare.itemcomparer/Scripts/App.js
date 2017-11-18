@@ -413,7 +413,7 @@ function initializePage()
                 text = values[internalName];
                 break;
             case "Attachments":
-                text = values[internalName];
+                text = values[internalName] ? 'Yes' : 'No';
                 break;
             case "Integer":
                 text = values[internalName];

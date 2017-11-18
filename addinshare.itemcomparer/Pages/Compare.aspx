@@ -67,8 +67,8 @@
                   <thead>
                     <tr>
                       <th>Field</th>
-                      <th>Item1</th>
-                      <th>Item2</th>
+                      <th id="item1th">Item1</th>
+                      <th id="item2th">Item2</th>
                     </tr>
                   </thead>
                   <tbody id="compareBody">
