@@ -51,6 +51,11 @@
     <Content Include="Images\appicon96.png">
       <OpcRelationship>manifest-icon</OpcRelationship>
     </Content>
+    <Content Include="Images\Capture1.PNG" />
+    <Content Include="Images\Capture2.PNG" />
+    <Content Include="Images\Capture3.PNG" />
+    <Content Include="Images\Capture4.PNG" />
+    <Content Include="Images\Capture5.PNG" />
     <Content Include="Images\down16x16.png" />
     <Content Include="Images\icon96.png" />
     <Content Include="Images\ribbon16.png" />

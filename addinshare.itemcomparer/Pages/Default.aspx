@@ -32,25 +32,25 @@
     <div class="ms-font-l" style="margin-left:15px">
         <p>Thanks for installing the Item Comparer Add-in!</p>
         <p>The <b>Item Comparer</b> Add-in is a smart tool that will help you compare two items. </p>
+        <p>It requires read permission on your site:</p>
+        <p>
+            <img src="../Images/Capture3.png" alt="" />
+        </p>
         <p>Once added the Add-in will look like this:</p>
         <p>
-            <img src="../Images/appicon.png" alt="" />
+            <img src="../Images/Capture2.png" alt="" />
         </p>
-        <p>It shows differences between items:</p>
+        <p>It shows differences between items (including read-only fields like Author etc.):</p>
         <p>
-            <img src="../Images/appicon.png" alt="" />
-        </p>
-        <p>It supports read only fields like Author, Version etc.:</p>
-        <p>
-            <img src="../Images/appicon.png" alt="" />
+            <img src="../Images/Capture1.png" alt="" />
         </p>
         <p>It supports views, you can switch views:</p>
         <p>
-            <img src="../Images/appicon.png" alt="" />
+            <img src="../Images/Capture4.png" alt="" />
         </p>
-        <p>It supports filters:</p>
+        <p>It supports fields filters:</p>
         <p>
-            <img src="../Images/appicon.png" alt="" />
+            <img src="../Images/Capture5.png" alt="" />
         </p>
         
     </div>

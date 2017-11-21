@@ -8,5 +8,10 @@
     <File Path="Images\ribbon16.png" Url="Images/ribbon16.png" ReplaceContent="TRUE" />
     <File Path="Images\icon96.png" Url="Images/icon96.png" ReplaceContent="TRUE" />
     <File Path="Images\appicon96.png" Url="Images/appicon96.png" ReplaceContent="TRUE" />
+    <File Path="Images\Capture2.PNG" Url="Images/Capture2.PNG" ReplaceContent="TRUE" />
+    <File Path="Images\Capture1.PNG" Url="Images/Capture1.PNG" ReplaceContent="TRUE" />
+    <File Path="Images\Capture4.PNG" Url="Images/Capture4.PNG" ReplaceContent="TRUE" />
+    <File Path="Images\Capture5.PNG" Url="Images/Capture5.PNG" ReplaceContent="TRUE" />
+    <File Path="Images\Capture3.PNG" Url="Images/Capture3.PNG" ReplaceContent="TRUE" />
   </Module>
 </Elements>

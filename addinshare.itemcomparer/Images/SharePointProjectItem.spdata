@@ -9,5 +9,10 @@
     <ProjectItemFile Source="ribbon16.png" Target="Images\" Type="ElementFile" />
     <ProjectItemFile Source="icon96.png" Target="Images\" Type="ElementFile" />
     <ProjectItemFile Source="appicon96.png" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Capture2.PNG" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Capture1.PNG" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Capture4.PNG" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Capture5.PNG" Target="Images\" Type="ElementFile" />
+    <ProjectItemFile Source="Capture3.PNG" Target="Images\" Type="ElementFile" />
   </Files>
 </ProjectItem>
